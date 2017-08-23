@@ -1,0 +1,12 @@
+.my-pagination{
+
+    cursor: pointer;
+  }
+
+.ng2-pagination .current{
+    cursor: pointer;
+  }
+
+.show-for-sr a{
+    cursor: pointer;
+}

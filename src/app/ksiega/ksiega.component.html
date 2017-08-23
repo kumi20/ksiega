@@ -1,0 +1,102 @@
+<app-navbar></app-navbar>
+<div class="container">
+	<div class="row" style="margin-bottom: 20px">
+		<div class="col-lg-3">
+			Rok:
+			<select class="form-control" [(ngModel)]="year">
+				<option value="2014">2014</option>
+				<option value="2015">2015</option>
+				<option value="2016">2016</option>
+				<option value="2017">2017</option>
+				<option value="2018">2018</option>
+				<option value="2019">2019</option>
+			</select>
+		</div>
+		<div class="col-lg-3">
+			Miesiąc:
+			<select class="form-control" [(ngModel)]="month">
+				<option value="01">styczeń</option>
+				<option value="02">luty</option>
+				<option value="03">marzec</option>
+				<option value="04">kwiecień</option>
+				<option value="05">maj</option>
+				<option value="06">czerwiec</option>
+				<option value="07">lipiec</option>
+				<option value="08">sierpień</option>
+				<option value="09">wrzesień</option>
+				<option value="10">październik</option>
+				<option value="11">listopad</option>
+				<option value="12">grudzień</option>
+			</select>
+		</div>
+		<div class="col-lg-3">
+			<button class="btn btn-success" style="margin-top: 20px" (click)="pokaz()">Pokaż</button>
+		</div>
+	</div>
+	<div class="row>">
+		 <table class="table table-hover">
+			<thead>
+			  <tr>
+				<th>Data zd. gosp.</th>
+				<th>nr dow. ksieg.	</th>
+				<th>Imię i nazwosko (firma)	</th>
+				<th>Razem przychód</th>
+				<th>Zak. tow. handl.</th>
+				<th>Koszty ub. zak.</th>
+				<th>Wynagr. w got.</th>
+				<th>Pozostałe wydatki</th>
+				<th>Opis zd. gosp.</th>
+			  </tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let i of kpir" routerLink="/ksiega/{{i.czy_przy}}/{{i.id}}">
+					<td>{{i.data_zd}}</td>
+					<td>{{i.nr_dow}}</td>
+					<td>{{i.name}}</td>
+					<td>{{i.razem_przychod}} zł</td>
+					<td>{{i.zakup_towarow}} zł</td>
+					<td>{{i.koszty_uboczne}} zł</td>
+					<td>{{i.wynagrodzenie_gotowka}} zł</td>
+					<td>{{i.pozostale_wydatki}} zł</td>
+					<td>{{i.opis_zdarzenia}}</td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</div>
+	
+	<br><br>
+	<div class="row">
+		
+		<div class="col-lg-6">
+			<table class="table table-hover">
+				<thead>
+					  <tr>
+						<th></th>
+						<th>W danym miesiącu</th>
+						<th>Od początku roku</th>
+					  </tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Razem przychód</td>
+						<td>{{statystyka!.przychod_miesiac}}</td>
+						<td>{{statystyka!.przychod_rok}}</td>
+					</tr>
+					<tr>
+						<td>Koszt uzyskania przychodu</td>
+						<td>{{statystyka!.wydatki_miesiac}}</td>
+						<td>{{statystyka!.wydatki_rok}}</td>
+					</tr>
+					<tr>
+						<td>Dochód</td>
+						<td>{{statystyka!.dochod_miesiac}}</td>
+						<td>{{statystyka!.dochod_rok}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+	</div>
+	
+</div>

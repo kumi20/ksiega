@@ -1,0 +1,63 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Księga Qumi Soft</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+        	 <a class="dropdown-toggle" data-toggle="dropdown" routerLink="/ksiega">Księga<span class="caret"></span></a>
+        	 <ul class="dropdown-menu">
+				<li><a routerLink="/addP">Dodaj przychód</a></li>
+				<li><a routerLink="/addR">Dodaj rozchód</a></li>
+			  </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">VAT Sprzedaży<span class="caret"></span></a>
+        </li>
+        <li><a href="#">VAT Zakupów</a></li>
+        <li class="dropdown">
+        	 <a class="dropdown-toggle" data-toggle="dropdown" routerLink="">Kilometrówka<span class="caret"></span></a>
+        	 <ul class="dropdown-menu">
+				<li><a routerLink="">Ewidencja przebiegu pojazdu osobowego</a></li>
+				<li><a routerLink="">Miesięczne zestawienie kosztów</a></li>
+				<li><a routerLink="">Lista pojazdów</a></li>
+			  </ul>
+        </li>
+        <li class="dropdown">
+        	 <a class="dropdown-toggle" data-toggle="dropdown" routerLink="">Dowody wewnętrzne<span class="caret"></span></a>
+        	 <ul class="dropdown-menu">
+				<li><a routerLink="#P">Dodaj dowód</a></li>
+			  </ul>
+        </li>
+        <li class="dropdown">
+        	 <a class="dropdown-toggle" data-toggle="dropdown" routerLink="">Wyposażenie<span class="caret"></span></a>
+        	 <ul class="dropdown-menu">
+				<li><a routerLink="#P">Dodaj wyposażenie</a></li>
+			  </ul>
+        </li>
+        <li class="dropdown">
+        	 <a class="dropdown-toggle" data-toggle="dropdown" routerLink="/kontrahenci">Kontrahenci<span class="caret"></span></a>
+        	 <ul class="dropdown-menu">
+				<li><a routerLink="/addKontrahenci">Dodaj kontrahenta</a></li>
+			  </ul>
+        </li>
+        <li class="dropdown">
+        	 <a class="dropdown-toggle" data-toggle="dropdown" routerLink="">Podatek<span class="caret"></span></a>
+        	 <ul class="dropdown-menu">
+				<li><a routerLink="#P">Podatek dochodowy</a></li>
+				<li><a routerLink="#P">Podatek VAT</a></li>
+				<li><a routerLink="#P">Składki ZUS</a></li>
+			  </ul>
+        </li>
+        <li><a (click)="logOut()">Wyloguj</a></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>

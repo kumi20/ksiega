@@ -1,0 +1,91 @@
+<app-navbar></app-navbar>  
+<div class="container">
+   <form [formGroup]="kontrahenci">
+    <h3>Dane firmy</h3>
+    <div class="row">
+        <div class="col-lg-3">
+          Nip:
+        </div>
+        <div class="col-lg-3" [ngClass]="{'form-group has-error': !kontrahenci.controls['nip'].valid && kontrahenci.controls['nip'].touched}">
+          <input class="form-control" formControlName="nip">
+          <p *ngIf="!kontrahenci.controls['nip'].valid && kontrahenci.controls['nip'].touched" class="alert alert-danger">Podaj NIP</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-3">Pełna nazwa firmy:</div>
+        <div class="col-lg-3" [ngClass]="{'form-group has-error': !kontrahenci.controls['nazwa'].valid && kontrahenci.controls['nazwa'].touched}">
+          <input class="form-control" formControlName="nazwa">
+          <p *ngIf="!kontrahenci.controls['nazwa'].valid && kontrahenci.controls['nazwa'].touched" class="alert alert-danger">Podaj nazwę kontrahenta</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-3">Ulica, nr domu, nr lokalu:</div>
+        <div class="col-lg-3" [ngClass]="{'form-group has-error': !kontrahenci.controls['ulica'].valid && kontrahenci.controls['ulica'].touched}">
+          <input class="form-control" formControlName="ulica">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-3">Kod, miejscowość</div>
+        <div class="col-lg-3" [ngClass]="{'form-group has-error': !kontrahenci.controls['kodPocztowy'].valid && kontrahenci.controls['kodPocztowy'].touched}">
+          <input class="form-control" formControlName="kodPocztowy">
+        </div>
+        <div class="col-lg-3" [ngClass]="{'form-group has-error': !kontrahenci.controls['miejscowosc'].valid && kontrahenci.controls['miejscowosc'].touched}">
+          <input class="form-control" formControlName="miejscowosc">
+        </div>
+    </div>
+    
+    <h3>Dane kontaktowe</h3>
+    <div class="row">
+        <div class="col-lg-3">Osoba kontaktowa:</div>
+        <div class="col-lg-3">
+          <input class="form-control" formControlName="osobaKontaktowa">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-3">Telefon:</div>
+        <div class="col-lg-3">
+          <input class="form-control" formControlName="telefon">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-3">Fax:</div>
+        <div class="col-lg-3">
+          <input class="form-control" formControlName="fax">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-3">Email:</div>
+        <div class="col-lg-3">
+          <input class="form-control" formControlName="email">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-3">www:</div>
+        <div class="col-lg-3">
+          <input class="form-control" formControlName="www">
+        </div>
+    </div>
+    
+    <h3>Rodzaj kontrahenta</h3>
+    <div class="row">
+        <div class="col-lg-3">Dostawca:</div>
+        <div class="col-lg-3"><input type="checkbox" formControlName="dostawca"></div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">Odbiorca:</div>
+        <div class="col-lg-3"><input type="checkbox" formControlName="odbiorca"></div>
+    </div>
+    
+    <div class="btn btn-group">
+        <button class="btn btn-default">Powrót</button>
+        <button class="btn btn-success" [disabled]="!kontrahenci.valid">Zapisz</button>
+    </div>
+    </form>
+</div>

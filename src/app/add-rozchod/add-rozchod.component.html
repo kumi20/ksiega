@@ -1,0 +1,103 @@
+<app-navbar></app-navbar>
+<div class="container">
+	<form (ngSubmit)="zapisz(addRozchod.value)" [formGroup]="addRozchod">
+		<div class="row" style="margin-bottom: 10px">
+			<h3>Dane zdarzenia gospodarczego</h3>
+			<div class="col-lg-6">
+			
+				<div class="row" style="margin-bottom: 10px;">
+					<div class="col-lg-6 text-right" >Miesiąc księgowania:</div>
+					<div class="col-lg-6" [ngClass]="{'form-group has-error':!addRozchod.controls['miesiac'].valid && addRozchod.controls['miesiac'].touched}">
+						<select class="form-control form-control-danger" formControlName="miesiac" >
+							<option value="">--wybierz--</option>
+							<option value="01">styczeń</option>
+							<option value="02">luty</option>
+							<option value="03">marzec</option>
+							<option value="04">kwiecień</option>
+							<option value="05">maj</option>
+							<option value="06">czerwiec</option>
+							<option value="07">lipiec</option>
+							<option value="08">sierpień</option>
+							<option value="09">wrzesień</option>
+							<option value="10">październik</option>
+							<option value="11">listopad</option>
+							<option value="12">grudzień</option>
+						</select>	
+						<p *ngIf="!addRozchod.controls['miesiac'].valid && addRozchod.controls['miesiac'].touched" class="alert alert-danger">Wybierz miesiąc</p>				
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 text-right">Rok księgowania:</div>
+					<div class="col-lg-6" [ngClass]="{'form-group has-error':!addRozchod.controls['rok'].valid && addRozchod.controls['rok'].touched}">
+						<select class="form-control" formControlName="rok">
+							<option value="">--wybierz--</option>
+							<option value="2015">2015</option>
+							<option value="2016">2016</option>
+							<option value="2017">2017</option>
+							<option value="2018">2018</option>
+							<option value="2019">2019</option>
+						</select>
+						<p *ngIf="!addRozchod.controls['rok'].valid && addRozchod.controls['rok'].touched" class="alert alert-danger">Wybierz rok</p>	
+					</div>
+				</div>
+			
+			</div>
+			<div class="col-lg-6">
+				<div class="row" style="margin-bottom: 10px">
+					<div class="col-lg-6 text-right">Data zdarzenia gospodarczego:</div>
+					<div class="col-lg-6" [ngClass]="{'form-group has-error':!addRozchod.controls['dataZdarzenia'].valid && addRozchod.controls['dataZdarzenia'].touched}">
+
+							<my-date-picker name="mydate" [options]="myDatePickerOptions" formControlName="dataZdarzenia"></my-date-picker>
+						<p *ngIf="!addRozchod.controls['dataZdarzenia'].valid && addRozchod.controls['dataZdarzenia'].touched" class="alert alert-danger">Wybierz date</p>	
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 text-right">Numer dowodu ksiegowego:</div>
+					<div class="col-lg-6" [ngClass]="{'form-group has-error':!addRozchod.controls['numerDowodu'].valid && addRozchod.controls['numerDowodu'].touched}"><input class="form-control" formControlName="numerDowodu"></div>
+
+				</div><p *ngIf="!addRozchod.controls['numerDowodu'].valid && addRozchod.controls['numerDowodu'].touched" class="alert alert-danger">Podaj numer dowodu księgowego</p>
+			</div>
+			</div>
+			<div class="row" style="margin-bottom: 10px">
+				<div class="col-lg-12" [ngClass]="{'form-group has-error':!addRozchod.controls['opis'].valid && addRozchod.controls['opis'].touched}">Opis zdarzenia gospodarczego: <input class="form-control" formControlName="opis"></div>
+			</div><p *ngIf="!addRozchod.controls['opis'].valid && addRozchod.controls['opis'].touched" class="alert alert-danger">Podaj opis zdarzenia</p>
+
+			<div class="row" style="margin-bottom: 10px">
+				<h3>Dane kontrahenta</h3>
+				<div class="col-lg-6" [ngClass]="{'form-group has-error':!addRozchod.controls['danekontrahenta'].valid && addRozchod.controls['danekontrahenta'].touched}">
+					<select class="form-control" formControlName="danekontrahenta">
+						<option value="">--wybierz--</option>
+						<option *ngFor="let i of odbiorcy" value="{{i.id}}">{{i.name}}</option>
+					</select>
+				</div>
+			</div><p *ngIf="!addRozchod.controls['danekontrahenta'].valid && addRozchod.controls['danekontrahenta'].touched" class="alert alert-danger">Wybierz kontrahenta</p>
+			
+			<div class="row" style="margin-bottom: 10px">
+				<h3>Rozchód</h3>
+				<div class="row">
+					<div class="col-lg-3">Zak. tow. handl. i mat. wg cen zakupu</div>
+					<div class="col-lg-3"><input class="form-control" formControlName="zakupTowarow"></div>
+					<div class="col-lg-3">Wynagr. w gotówce i w nat.</div>
+					<div class="col-lg-3"><input class="form-control" formControlName="wynagrodzenieGotowka"></div>
+				</div>
+				<div class="row">
+					<div class="col-lg-3">Koszty uboczne zakupu</div>
+					<div class="col-lg-3"><input class="form-control" formControlName="kosztyUboczne"></div>
+					<div class="col-lg-3">Pozostałe wydatki</div>
+					<div class="col-lg-3"><input class="form-control" formControlName="pozostaleWydatki"></div>
+				</div>
+			</div>
+			
+			<div class="row" style="margin-bottom: 10px">
+				<h3>Uwagi</h3>
+				<div class="col-lg-12"><input class="form-control" formControlName="uwagi"></div>
+			</div>
+			<div class="row" style="margin-bottom: 10px">
+				<div class="btn btn-group">
+					<button class="btn btn-defaul" routerLink="/ksiega">Powrót</button>
+					<button type="submit" class="btn btn-success" [disabled]="!addRozchod.valid">Zapisz</button>
+					<button class="btn btn-danger" (click)="usun()">Usuń</button> 
+				</div>
+			</div>
+	</form>
+</div>

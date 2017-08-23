@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<div class="container">
+	<div class="row" style="margin-bottom: 20px">
+		<table class="table table-hover">
+			<thead>
+				<th>Nazwa</th>
+				<th>Ulica</th>
+				<th>Miejscowość</th>
+				<th>Telefon</th>
+				<th>Dostawca</th>
+				<th>Odbiorca</th>
+			</thead>
+			<tbody>
+			  <tr *ngFor="let i of kontrahenci | paginate: { itemsPerPage: 10, currentPage: p }" routerLink="/kontrahenci/{{i.id}}">
+			      <td>{{i.Name}}</td>
+			      <td>{{i.Street}}</td>
+			      <td>{{i.miejscowosc}}</td>
+			      <td>{{i.telephone}}</td>
+			      <td><p *ngIf="i.dostawca==1">tak</p></td>
+			      <td><p *ngIf="i.odbiorca==1">tak</p></td>
+			  </tr>
+			</tbody>
+		</table>
+		<div style="text-align: center">
+		    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+		</div>
+	</div>
+</div>

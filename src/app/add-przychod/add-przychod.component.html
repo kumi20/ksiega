@@ -1,0 +1,107 @@
+<app-navbar></app-navbar>
+<div class="container">
+	<form (ngSubmit)="zapisz(addPrzychod.value)" [formGroup]="addPrzychod">
+	<div class="row" style="margin-bottom: 10px">
+		<h3>Dane zdarzenia gospodarczego</h3>
+		<div class="col-lg-6">
+			
+			<div class="row" style="margin-bottom: 10px;">
+				<div class="col-lg-6 text-right" >Miesiąc księgowania:</div>
+				<div class="col-lg-6" [ngClass]="{'form-group has-error':!addPrzychod.controls['miesiac'].valid && addPrzychod.controls['miesiac'].touched}">
+					<select class="form-control form-control-danger" formControlName="miesiac" >
+						<option value="">--wybierz--</option>
+						<option value="01">styczeń</option>
+						<option value="02">luty</option>
+						<option value="03">marzec</option>
+						<option value="04">kwiecień</option>
+						<option value="05">maj</option>
+						<option value="06">czerwiec</option>
+						<option value="07">lipiec</option>
+						<option value="08">sierpień</option>
+						<option value="09">wrzesień</option>
+						<option value="10">październik</option>
+						<option value="11">listopad</option>
+						<option value="12">grudzień</option>
+					</select>	
+					<p *ngIf="!addPrzychod.controls['miesiac'].valid && addPrzychod.controls['miesiac'].touched" class="alert alert-danger">Wybierz miesiąc</p>				
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 text-right">Rok księgowania:</div>
+				<div class="col-lg-6" [ngClass]="{'form-group has-error':!addPrzychod.controls['rok'].valid && addPrzychod.controls['rok'].touched}">
+					<select class="form-control" formControlName="rok">
+						<option value="">--wybierz--</option>
+						<option value="2015">2015</option>
+						<option value="2016">2016</option>
+						<option value="2017">2017</option>
+						<option value="2018">2018</option>
+						<option value="2019">2019</option>
+					</select>
+					<p *ngIf="!addPrzychod.controls['rok'].valid && addPrzychod.controls['rok'].touched" class="alert alert-danger">Wybierz rok</p>	
+				</div>
+			</div>
+			
+		</div>
+		<div class="col-lg-6">
+			<div class="row" style="margin-bottom: 10px">
+				<div class="col-lg-6 text-right">Data zdarzenia gospodarczego:</div>
+				<div class="col-lg-6" [ngClass]="{'form-group has-error':!addPrzychod.controls['dataZdarzenia'].valid && addPrzychod.controls['dataZdarzenia'].touched}">
+					
+						<my-date-picker name="mydate" [options]="myDatePickerOptions" formControlName="dataZdarzenia"></my-date-picker>
+					<p *ngIf="!addPrzychod.controls['dataZdarzenia'].valid && addPrzychod.controls['dataZdarzenia'].touched" class="alert alert-danger">Wybierz date</p>	
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 text-right">Numer dowodu ksiegowego:</div>
+				<div class="col-lg-6" [ngClass]="{'form-group has-error':!addPrzychod.controls['numerDowodu'].valid && addPrzychod.controls['numerDowodu'].touched}"><input class="form-control" formControlName="numerDowodu"></div>
+				
+			</div><p *ngIf="!addPrzychod.controls['numerDowodu'].valid && addPrzychod.controls['numerDowodu'].touched" class="alert alert-danger">Podaj numer dowodu księgowego</p>
+		</div>
+	</div>
+	<div class="row" style="margin-bottom: 10px">
+		<div class="col-lg-12" [ngClass]="{'form-group has-error':!addPrzychod.controls['opis'].valid && addPrzychod.controls['opis'].touched}">Opis zdarzenia gospodarczego: <input class="form-control" formControlName="opis"></div>
+	</div><p *ngIf="!addPrzychod.controls['opis'].valid && addPrzychod.controls['opis'].touched" class="alert alert-danger">Podaj opis zdarzenia</p>
+
+	<div class="row" style="margin-bottom: 10px">
+		<h3>Dane kontrahenta</h3>
+		<div class="col-lg-6" [ngClass]="{'form-group has-error':!addPrzychod.controls['danekontrahenta'].valid && addPrzychod.controls['danekontrahenta'].touched}">
+			<select class="form-control" formControlName="danekontrahenta">
+				<option value="">--wybierz--</option>
+				<option *ngFor="let i of odbiorcy" value="{{i.id}}">{{i.name}}</option>
+			</select>
+		</div>
+	</div><p *ngIf="!addPrzychod.controls['danekontrahenta'].valid && addPrzychod.controls['danekontrahenta'].touched" class="alert alert-danger">Wybierz kontrahenta</p>
+	<div class="row" style="margin-bottom: 10px">
+		<h3>Przychód</h3>
+		<div class="col-lg-6">
+			<div class="row">
+				<div class="col-lg-6 text-right">
+					Wartość sprzedanych towarów:
+				</div>
+				<div class="col-lg-6" ><input class="form-control" formControlName="wartoscSprzedanych"></div>
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<div class="row">
+				<div class="col-lg-6 text-right">Pozostałe przychody</div>
+				<div class="col-lg-6"><input class="form-control" formControlName="pozostalePrzychody"></div>
+			</div>
+		</div>
+	</div>
+	<div class="row" style="margin-bottom: 10px">
+		<h3>Uwagi</h3>
+		<div class="col-lg-12"><input class="form-control" formControlName="uwagi"></div>
+	</div>
+	<div class="row" style="margin-bottom: 10px">
+		<div class="btn btn-group">
+			<button class="btn btn-defaul" routerLink="/ksiega">Powrót</button>
+			<button type="submit" class="btn btn-success" [disabled]="!addPrzychod.valid">Zapisz</button>
+			<button class="btn btn-danger" (click)="usun()">Usuń</button> 
+		</div>
+	</div>
+	</form>
+</div>
+
+
+
+
