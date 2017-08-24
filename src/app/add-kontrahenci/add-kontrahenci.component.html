@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>  
 <div class="container">
-   <form [formGroup]="kontrahenci">
+   <form (ngSubmit)="zapisz(kontrahenci.value)" [formGroup]="kontrahenci">
     <h3>Dane firmy</h3>
     <div class="row">
         <div class="col-lg-3">
@@ -24,6 +24,7 @@
         <div class="col-lg-3">Ulica, nr domu, nr lokalu:</div>
         <div class="col-lg-3" [ngClass]="{'form-group has-error': !kontrahenci.controls['ulica'].valid && kontrahenci.controls['ulica'].touched}">
           <input class="form-control" formControlName="ulica">
+          <p *ngIf="!kontrahenci.controls['ulica'].valid && kontrahenci.controls['ulica'].touched" class="alert alert-danger">Podaj ulice i nr domu</p>
         </div>
     </div>
     
@@ -31,9 +32,11 @@
         <div class="col-lg-3">Kod, miejscowość</div>
         <div class="col-lg-3" [ngClass]="{'form-group has-error': !kontrahenci.controls['kodPocztowy'].valid && kontrahenci.controls['kodPocztowy'].touched}">
           <input class="form-control" formControlName="kodPocztowy">
+          <p *ngIf="!kontrahenci.controls['kodPocztowy'].valid && kontrahenci.controls['kodPocztowy'].touched" class="alert alert-danger">Podaj kod pocztowy</p>
         </div>
         <div class="col-lg-3" [ngClass]="{'form-group has-error': !kontrahenci.controls['miejscowosc'].valid && kontrahenci.controls['miejscowosc'].touched}">
           <input class="form-control" formControlName="miejscowosc">
+          <p *ngIf="!kontrahenci.controls['miejscowosc'].valid && kontrahenci.controls['miejscowosc'].touched" class="alert alert-danger">Podaj miejscowość</p>
         </div>
     </div>
     
@@ -84,8 +87,9 @@
     </div>
     
     <div class="btn btn-group">
-        <button class="btn btn-default">Powrót</button>
+        <button class="btn btn-default" (click)="powrot()">Powrót</button>
         <button class="btn btn-success" [disabled]="!kontrahenci.valid">Zapisz</button>
+        <button class="btn btn-danger" (click)="usun()">Usuń</button> 
     </div>
     </form>
 </div>

@@ -8,6 +8,7 @@ import 'rxjs/add/operator/toPromise';
 export class KsiegaService {
 
   public headers;
+  idUser='1484923258195547';
 	
   constructor(private _http:Http) { 
   	
@@ -147,12 +148,65 @@ export class KsiegaService {
   getKontrahenci(){
 	  var json = JSON.stringify(
 		{
-			'idUser':'1484923258195547'
+			'idUser':this.idUser
 		}
 	  )
 	  
 	  return this._http.post("http://kumi20.webd.pl/ksiega/api/getKontrahenci.php",json).map(
 	  	response => response.json()
 	  )
+  }
+  
+  //funckja pobiera szczegóły kontrahenta
+  getDetKontrahenta(id){
+      var json = JSON.stringify(
+          {
+              'idUser': this.idUser,
+              'idKon': id
+          }
+      )
+      
+      return this._http.post("http://kumi20.webd.pl/ksiega/api/getDetKontrahnenta.php",json).map(
+	  	    response => response.json()
+	     )
+  }
+  
+  //funkcja zapisuje dane kontrahenta
+  saveKontrahent(kontrahent, id){
+      var json = JSON.stringify(
+        {
+            'idUser': this.idUser,
+            'nip': kontrahent.nip,
+            'name': kontrahent.nazwa,
+            'street': kontrahent.ulica,
+            'postcode':kontrahent.kodPocztowy,
+            'miejscowosc':kontrahent.miejscowosc,
+            'person':kontrahent.osobaKontaktowa,
+            'telephone':kontrahent.telefon,
+            'fax':kontrahent.fax,
+            'email':kontrahent.email,
+            'www':kontrahent.www,
+            'dostawca':kontrahent.dostawca,
+            'odbiorca':kontrahent.odbiorca, 
+            'id':id
+        }
+      )
+      
+      return this._http.post("http://kumi20.webd.pl/ksiega/api/saveKontrahenci.php",json).map(
+	  	    response => response.json()
+	     )
+  }
+  
+  //funkcja usuwająca kontrahenta
+  deleteKOntrahent(id){
+      var json = JSON.stringify(
+          {
+              'id':id
+          }
+      )
+      
+      return this._http.post("http://kumi20.webd.pl/ksiega/api/deleteKontrahent.php",json).map(
+          resopnse => resopnse.json()
+      )
   }
 }
