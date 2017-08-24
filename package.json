@@ -21,11 +21,7 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
-    "angular2-social-login": "^3.1.1",
-    "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
-    "mydatepicker": "^2.0.27",
-    "ng2-pagination": "^2.0.2",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },
