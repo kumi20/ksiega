@@ -10,7 +10,7 @@ import { KsiegaService } from '../ksiega.service';
 export class KontrahenciComponent implements OnInit {
 		
 	kontrahenci;
-  
+    p;
   constructor(private ksiegaService: KsiegaService) { }
 
   ngOnInit() {
