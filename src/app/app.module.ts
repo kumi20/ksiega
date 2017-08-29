@@ -14,6 +14,7 @@ import { MyDatePickerModule } from 'mydatepicker';
 import { Angular2SocialLoginModule } from "angular2-social-login";
 
 import { KsiegaService } from './ksiega.service';
+import { KumiService } from './kumi.service';
 
 import { AuthGuard } from './auth.guard';
 
@@ -65,6 +66,7 @@ let providers = {
   ],
   providers: [
 	  KsiegaService,
+      KumiService,
 	  AuthGuard
   ],
   bootstrap: [AppComponent]
