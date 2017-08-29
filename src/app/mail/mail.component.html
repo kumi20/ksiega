@@ -1,0 +1,20 @@
+<form [formGroup]="emailSend" (ngSubmit)="send(emailSend.value)">
+                    <div class="form-group">
+				        <label for="name">Imię i nazwisko *</label>
+				        <input type="text" class="form-control" formControlName="name">
+				    </div>
+                    <div class="form-group">
+				        <label for="email">E-mail *</label>
+				        <div class="input-group">
+				            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+				            </span>
+				            <input type="email" class="form-control" formControlName="email">
+                        </div>
+				    </div>
+                    <div class="form-group">
+				        <label for="name">Wiadomość *</label>
+				        <textarea  class="form-control" rows="9" cols="25" formControlName="message"></textarea>
+				    </div>
+                    <button type="submit" class="btn pull-left" [disabled]="!emailSend.valid" 
+                            [ngClass]="{'btn-default': emailSend.valid, 'dis':!emailSend.valid}">Wyślij wiadomość</button>
+</form>

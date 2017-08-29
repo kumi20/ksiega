@@ -27,6 +27,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { KontrahenciComponent } from './kontrahenci/kontrahenci.component';
 import { AddKontrahenciComponent } from './add-kontrahenci/add-kontrahenci.component';
+import { MailComponent } from './mail/mail.component';
 
 
 let providers = {
@@ -52,17 +53,19 @@ let providers = {
     NavbarComponent,
 	  LoginComponent,
     KontrahenciComponent,
-    AddKontrahenciComponent
+    AddKontrahenciComponent,
+    MailComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     Ng2PaginationModule,
     HttpModule,
     routerModule,
     MyDatePickerModule,
     FormsModule,
     Angular2SocialLoginModule,
-    ReactiveFormsModule
+    
   ],
   providers: [
 	  KsiegaService,

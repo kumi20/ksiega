@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { KumiService } from '../kumi.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class DashboardComponent implements OnInit {
 
   oNas: string = '';
   oferta: string = ''; 
-  wyslano: boolean = false;    
+  wyslano: boolean = false;  
+  
     
   ngOnInit() {
       
@@ -24,6 +26,8 @@ export class DashboardComponent implements OnInit {
       this.kumiService.getOferta().subscribe(
             res =>  this.oferta = res[0].static_content
       )
-  }
+      
 
+  }
+    
 }

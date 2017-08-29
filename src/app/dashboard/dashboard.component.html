@@ -70,16 +70,18 @@
     </div>
 </section>
 
-<section class="content-2 col-4" id="features1-77" style="background-color: rgb(28, 73, 110);">
+<section id="features1-77" style="background-color: rgb(28, 73, 110);">
     
     <div class="container">
         <div class="row" style="color:#ffffff">
-            <ng-template [ngIf]="!wyslano" [ngIfElse]="wiadomosc">
-                jest template
-            </ng-template>
-            <ng-template #wiadomosc>
-                Wysłano
-            </ng-template>
+            <div class="col-lg-6">
+                <ng-template [ngIf]="!wyslano" [ngIfElse]="emailSend">
+                    <app-mail></app-mail>     
+                </ng-template>
+                <ng-template #wiadomosc>
+                    Wysłano
+                </ng-template>
+            </div>
         </div>
     </div>
 </section>

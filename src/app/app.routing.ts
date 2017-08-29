@@ -8,6 +8,7 @@ import { AuthGuard } from './auth.guard';
 import { KontrahenciComponent } from './kontrahenci/kontrahenci.component';
 import { AddKontrahenciComponent } from './add-kontrahenci/add-kontrahenci.component';
 
+
 /// ROUTING
 const routesConfig: Routes = [
 	{path: '', component: DashboardComponent,},
@@ -19,8 +20,9 @@ const routesConfig: Routes = [
 	{path: 'addP', component: AddPrzychodComponent, canActivate: [AuthGuard]},
 	{path: 'addR', component: AddRozchodComponent},
 	{path: 'kontrahenci', component: KontrahenciComponent},
-  {path: 'addKontrahenci', component: AddKontrahenciComponent},
-  {path: 'kontrahenci/:id', component: AddKontrahenciComponent}
+    {path: 'addKontrahenci', component: AddKontrahenciComponent},
+    {path: 'kontrahenci/:id', component: AddKontrahenciComponent},
+ 
 ]
 
 export const routerModule = RouterModule.forRoot(routesConfig, {
