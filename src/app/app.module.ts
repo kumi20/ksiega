@@ -28,6 +28,7 @@ import { LoginComponent } from './login/login.component';
 import { KontrahenciComponent } from './kontrahenci/kontrahenci.component';
 import { AddKontrahenciComponent } from './add-kontrahenci/add-kontrahenci.component';
 import { MailComponent } from './mail/mail.component';
+import { DochodowyComponent } from './dochodowy/dochodowy.component';
 
 
 let providers = {
@@ -54,7 +55,8 @@ let providers = {
 	  LoginComponent,
     KontrahenciComponent,
     AddKontrahenciComponent,
-    MailComponent
+    MailComponent,
+    DochodowyComponent
   ],
   imports: [
     BrowserModule,

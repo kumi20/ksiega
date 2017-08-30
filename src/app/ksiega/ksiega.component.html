@@ -1,8 +1,10 @@
+<div class="ksiega">
 <app-navbar></app-navbar>
+
 <div class="container">
 	<div class="row" style="margin-bottom: 20px">
 		<div class="col-lg-3">
-			Rok:
+			<p>Rok:</p>
 			<select class="form-control" [(ngModel)]="year">
 				<option value="2014">2014</option>
 				<option value="2015">2015</option>
@@ -13,7 +15,7 @@
 			</select>
 		</div>
 		<div class="col-lg-3">
-			Miesiąc:
+      <p>Miesiąc:</p>
 			<select class="form-control" [(ngModel)]="month">
 				<option value="01">styczeń</option>
 				<option value="02">luty</option>
@@ -30,7 +32,7 @@
 			</select>
 		</div>
 		<div class="col-lg-3">
-			<button class="btn btn-success" style="margin-top: 20px" (click)="pokaz()">Pokaż</button>
+			<button class="btn btn-success" style="margin-top: 35px" (click)="pokaz()">Pokaż</button>
 		</div>
 	</div>
 	<div class="row>">
@@ -99,4 +101,5 @@
 		
 	</div>
 	
+</div>
 </div>

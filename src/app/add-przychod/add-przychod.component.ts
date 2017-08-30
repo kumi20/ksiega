@@ -103,7 +103,7 @@ export class AddPrzychodComponent implements OnInit {
 	  
   }
 
-  powrot(){
+  back(){
 	  history.back();
   }
 	

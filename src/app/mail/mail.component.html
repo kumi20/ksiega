@@ -1,20 +1,22 @@
 <form [formGroup]="emailSend" (ngSubmit)="send(emailSend.value)">
-                    <div class="form-group">
+            <div class="form-group" [ngClass]="{'has-error':!emailSend.controls['name'].valid && emailSend.controls['name'].touched}">
 				        <label for="name">Imię i nazwisko *</label>
 				        <input type="text" class="form-control" formControlName="name">
 				    </div>
-                    <div class="form-group">
+            <div class="form-group" [ngClass]="{'has-error':!emailSend.controls['email'].valid && emailSend.controls['email'].touched}">
 				        <label for="email">E-mail *</label>
-				        <div class="input-group">
+				        <div class="input-group" >
 				            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
 				            </span>
 				            <input type="email" class="form-control" formControlName="email">
-                        </div>
+                </div>
 				    </div>
-                    <div class="form-group">
+            <div class="form-group" [ngClass]="{'has-error':!emailSend.controls['message'].valid && emailSend.controls['message'].touched}">
 				        <label for="name">Wiadomość *</label>
 				        <textarea  class="form-control" rows="9" cols="25" formControlName="message"></textarea>
 				    </div>
-                    <button type="submit" class="btn pull-left" [disabled]="!emailSend.valid" 
+            <p *ngIf="!emailSend.valid && (emailSend.controls['name'].touched || emailSend.controls['email'].touched || emailSend.controls['message'].touched)" class="alert alert-danger" style="color:red">Wypełnij wszystkie pola zaznaczone na czerwono</p>
+                          
+            <button type="submit" class="btn pull-left" [disabled]="!emailSend.valid"   
                             [ngClass]="{'btn-default': emailSend.valid, 'dis':!emailSend.valid}">Wyślij wiadomość</button>
 </form>

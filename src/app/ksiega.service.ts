@@ -8,6 +8,8 @@ import 'rxjs/add/operator/toPromise';
 export class KsiegaService {
 
   public headers;
+  public idUser: string = '1484923258195547';
+  public uri: string = "http://kumi20.webd.pl/api/ksiega/"
 	
   constructor(private _http:Http) { 
   	
@@ -18,28 +20,37 @@ export class KsiegaService {
   }
 
   getKsiega(year, month){
-	  var json = JSON.stringify(
+	  const json = JSON.stringify(
 		  {
 			  'year':year,
-		  	  'month': month
+		    'month': month,
+        'idUser':this.idUser
 		  }
 	  );
 	  
-	  return this._http.post(`http://kumi20.webd.pl/ksiega/api/getKpir.php`, json).map(
+	  return this._http.post(this.uri+`getKpir.php`, json).map(
 	  		response => response.json()
 	  )
   }
 	
   //funkcja pobiera odbiorców
   getOdbiorcy(){
-	  return this._http.get('http://kumi20.webd.pl/ksiega/api/getOdbiorcy.php').map(
+     const json = JSON.stringify(
+		  {
+        'idUser':this.idUser
+		  });
+	  return this._http.post(this.uri+'getOdbiorcy.php',json).map(
 	  		response => response.json()
 	  )	  
   }
 	
   //funkcja pobiera dostawcow
   getDostawcy(){
-	  return this._http.get('http://kumi20.webd.pl/ksiega/api/getDostawcy.php').map(
+    const json = JSON.stringify(
+		{
+			'idUser':this.idUser
+		})
+	  return this._http.post(this.uri+'getDostawcy.php',json).map(
 	  		response => response.json()
 	  )
   }
@@ -52,7 +63,7 @@ export class KsiegaService {
 		  }
 	  );
 	  
-	  return this._http.post('http://kumi20.webd.pl/ksiega/api/getPrzychod.php', json).map(
+	  return this._http.post(this.uri+'getPrzychod.php', json).map(
 	  	response => response.json()
 	  )
   }
@@ -65,7 +76,7 @@ export class KsiegaService {
 		  }
 	  )
 	  
-	  return this._http.post('http://kumi20.webd.pl/ksiega/api/getRozchod.php', json).map(
+	  return this._http.post(this.uri+'getRozchod.php', json).map(
 	  		response => response.json()
 	  )
   }
@@ -84,11 +95,12 @@ export class KsiegaService {
 			'przych': przychod.wartoscSprzedanych,
 			'pozostale_przychody': przychod.pozostalePrzychody,
 			'uwagi': przychod.uwagi,
-			'id': id
+			'id': id,
+      'idUser':this.idUser
 		}
 	  )
 	  
-	  return this._http.post("http://kumi20.webd.pl/ksiega/api/savePrzychod.php",json).map(
+	  return this._http.post(this.uri+"savePrzychod.php",json).map(
 	  		response => response.json()
 	  )
   }
@@ -109,11 +121,12 @@ export class KsiegaService {
 			'koszty_uboczne': rozchod.kosztyUboczne,
 			'pozostale_wydatki': rozchod.pozostaleWydatki,
 			'uwagi': rozchod.uwagi,
-			'id': id
+			'id': id,
+      'idUser':this.idUser
 		}
 	  )
 	  
-	  return this._http.post("http://kumi20.webd.pl/ksiega/api/saveRozchod.php",json).map(
+	  return this._http.post(this.uri+"saveRozchod.php",json).map(
 	  		response => response.json()
 	  )
   }	
@@ -124,7 +137,7 @@ export class KsiegaService {
 		{'id':id}
 	)
 	
-	return this._http.post("http://kumi20.webd.pl/ksiega/api/deletePrzychod.php", json).map(
+	return this._http.post(this.uri+"deletePrzychod.php", json).map(
 		response => response.json()
 	)
   }
@@ -134,25 +147,78 @@ export class KsiegaService {
 	  var json = JSON.stringify(
 		{
 			'year':year,
-			'month': month
+			'month': month,
+      'idUser':this.idUser
 		}
 	)
 	  
-	return this._http.post("http://kumi20.webd.pl/ksiega/api/statystykaKpir.php",json).map(
+	return this._http.post(this.uri+"statystykaKpir.php",json).map(
 		response => response.json()
 	)  
   }
 	
   //funcka pobiera listę kontrahentów
   getKontrahenci(){
-	  var json = JSON.stringify(
+	  const json = JSON.stringify(
 		{
-			'idUser':'1484923258195547'
-		}
-	  )
+			'idUser':this.idUser
+		})
 	  
-	  return this._http.post("http://kumi20.webd.pl/ksiega/api/getKontrahenci.php",json).map(
+	  return this._http.post(this.uri+"getKontrahenci.php",json).map(
 	  	response => response.json()
 	  )
   }
+  
+  //funckja pobiera podatek dochodwy
+  getDochdowy(year){
+      const json = JSON.stringify(
+      {
+        'idUser':this.idUser,
+        'year': year
+      })
+      
+      return this._http.post(this.uri+"getDochodowy.php", json).map(
+          response => response.json()
+      )
+  }
+  
+  //funkcja oblicza podatek dochodowy
+  liczPodatek(year, mounth){
+      const json = JSON.stringify(
+      {
+        'idUser':this.idUser,
+        'year': year,
+        'mounth':mounth
+      })
+      
+      return this._http.post(this.uri+"obliczPodatek.php", json).map(
+          response => response.json()
+      )
+  }
+  
+  //funkcja zapisuje podatek dochodowy
+  savePodatekDochodowy(podatek){
+      const json = JSON.stringify(
+      {
+        'idUser':this.idUser,
+        'podatek': podatek,
+      })
+      
+      return this._http.post(this.uri+"addDochodowy.php", json).map(
+          response => response.json()
+      )
+    }
+  
+    //funkcja usuwa podatek dochodowy
+    deleteDochdowy(id){
+      const json = JSON.stringify(
+      {
+        'id':id
+      })
+      
+      return this._http.post(this.uri+"deleteDochodowy.php", json).map(
+          response => response.json()
+      )
+    }
+  
 }

@@ -1,0 +1,164 @@
+<div class="ksiega">
+    <app-navbar></app-navbar>
+    
+    <div class="container">
+       <div class="row">
+             <div class="col-lg-3">
+              <p>Rok:</p>
+              <select class="form-control" [(ngModel)]="year">
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+              </select>
+            </div>
+            <div class="col-lg-3">
+                <button class="btn btn-success" style="margin-top: 35px;" (click)="pokaz()">Pokaż</button>
+            </div>
+       </div>
+       <div class="row">
+             <table class="table table-hover">
+                <thead>
+                    <th>Rok</th>
+                    <th>Miesiąc</th>
+                    <th>Przychód</th>
+                    <th>Koszt uzyskania przychodu</th>
+                    <th>Dochód</th>
+                    <th>Kwota zaliczki</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let i of dochodowy">
+                        <td>{{i.rok}}</td>
+                        <td>{{i.miesiac}}</td>
+                        <td>{{i.suma_przychodow | number:'.2-2'}} zł</td>
+                        <td>{{i.suma_kosztow | number:'.2-2'}} zł</td>
+                        <td>{{i.suma_przychodow - i.suma_kosztow | number:'.2-2'}} zł</td>
+                        <td>{{i.kwota_zaliczki | number:'.2-2'}} zł</td>
+                        <td><button (click)="usun(i.id)" class="btn btn-danger">Usuń</button></td>
+                    </tr>
+                </tbody>
+          </table>
+       </div>
+       
+       <div class="row">
+           <form [formGroup]="obliczPodatek" (ngSubmit)="oblicz(obliczPodatek.value)">
+               <div class="col-lg-3">
+                   <p>Miesiąc księgowy</p>
+                   <select class="form-control" formControlName="mounth">
+                       <option value="">--wybierz--</option> 
+                       <option value="01">styczeń</option>
+                       <option value="02">luty</option>
+                       <option value="03">marzec</option>
+                       <option value="04">kwiecień</option>
+                       <option value="05">maj</option>
+                       <option value="06">czerwiec</option>
+                       <option value="07">lipiec</option>
+                       <option value="08">sierpień</option>
+                       <option value="09">wrzesień</option>
+                       <option value="10">październik</option>
+                       <option value="11">listopad</option>
+                       <option value="12">grudzień</option>
+                   </select>
+               </div>
+               
+               <div class="col-lg-3">
+                  <p>Rok księgowy</p>
+                   <select class="form-control" formControlName="year">
+                        <option value="">--wybierz--</option> 
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                   </select>
+               </div>
+               
+               <div class="col-lg-3">
+                   <button type="submit" class="btn btn-success" style="margin-top: 35px;" [disabled]="!obliczPodatek.valid">Oblicz</button>
+               </div>
+  
+           </form>
+       </div>
+       
+       <div class="row">
+           <ng-template [ngIf]="obliczono">
+               
+               <div class="row" style="border-bottom: solid 1px #111111">
+                   <div class="col-lg-3">
+                       <p>Rok:</p>
+                   </div>
+                   <div class="col-lg-3">
+                       <p>{{podatek.rok}}</p>
+                   </div>    
+
+                   <div class="col-lg-3">
+                       <p>Miesiąc:</p>
+                   </div>
+                   <div class="col-lg-3">
+                       <p>{{podatek.miesiac}}</p>
+                   </div>    
+               </div>
+               
+               <div class="row" style="border-bottom: solid 1px #111111">
+                   <div class="col-lg-3">
+                       <p>Suma zapłaconych składek na ub. społeczne:</p>
+                   </div>
+                   <div class="col-lg-3">
+                       <p>{{podatek.spoleczne | number:'.2-2'}} zł</p>
+                   </div>    
+               
+                   <div class="col-lg-3">
+                       <p>Suma odliczonych składek na ub. zdrowotne:</p>
+                   </div>
+                   <div class="col-lg-3">
+                       <p>{{podatek.zdrowotne | number:'.2-2'}} zł</p>
+                   </div>    
+               </div>
+               
+               <div class="row" style="border-bottom: solid 1px #111111">
+                   <div class="col-lg-3">
+                       <p>Podatek od początku roku:</p>
+                   </div>
+                   <div class="col-lg-3">
+                       <p>{{podatek.podatek | number:'.2-2'}} zł</p>
+                   </div>    
+               
+                   <div class="col-lg-3">
+                       <p>Zaliczka na podatek:</p>
+                   </div>
+                   <div class="col-lg-3">
+                       <p>{{podatek.zaliczka | number:'.2-2'}} zł</p>
+                   </div>    
+               </div>
+               <div class="row">
+                   <div class="col-l-12">
+                       <table class="table table-hover">
+                            <thead>
+                                <th>Przychód</th>
+                                <th>Koszt uzyskania przychodu</th>
+                                <th>dochód</th>
+                            </thead>
+                            <tbody>
+                                <td><p>{{podatek.przychod | number:'.2-2'}} zł</p></td>
+                                <td><p>{{podatek.koszt | number:'.2-2'}} zł</p></td>
+                                <td><p>{{podatek.przychod - podatek.koszt | number:'.2-2'}} zł</p></td>
+                            </tbody>
+                       </table>
+                   </div>
+               </div>
+               <div class="row">
+                   <div class="btn btn-group">
+                       <button class="btn btn-danger" (click)="anuluj()">Anuluj</button>
+                       <button class="btn btn-success" (click)="zapisz()">Zapisz</button>
+                   </div>
+               </div>
+           </ng-template>
+       </div>
+        
+    </div>
+    
+</div>

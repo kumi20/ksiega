@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
 import { KontrahenciComponent } from './kontrahenci/kontrahenci.component';
 import { AddKontrahenciComponent } from './add-kontrahenci/add-kontrahenci.component';
+import { DochodowyComponent } from './dochodowy/dochodowy.component';
 
 
 /// ROUTING
@@ -17,12 +18,13 @@ const routesConfig: Routes = [
 	{path: 'ksiega', component: KsiegaComponent, },
 	{path: 'ksiega/1/:id', component: AddPrzychodComponent, },
 	{path: 'ksiega/0/:id', component: AddRozchodComponent, },
-	{path: 'addP', component: AddPrzychodComponent, canActivate: [AuthGuard]},
+	{path: 'addP', component: AddPrzychodComponent,},
 	{path: 'addR', component: AddRozchodComponent},
 	{path: 'kontrahenci', component: KontrahenciComponent},
-    {path: 'addKontrahenci', component: AddKontrahenciComponent},
-    {path: 'kontrahenci/:id', component: AddKontrahenciComponent},
- 
+  {path: 'addKontrahenci', component: AddKontrahenciComponent},
+  {path: 'kontrahenci/:id', component: AddKontrahenciComponent},
+  {path: 'dochodowy', component: DochodowyComponent},
+  
 ]
 
 export const routerModule = RouterModule.forRoot(routesConfig, {

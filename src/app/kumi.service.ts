@@ -8,28 +8,30 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class KumiService {
 
+  public uri: string = "http://kumi20.webd.pl/api/kumiSoft/";
+  
   constructor(private _http:Http) { }
    
   idUser = '1484923258195547';
     
   getOnas(){
-      const json = JSON.stringify(
-      {
-          'idUser': this.idUser
-      })
-      return this._http.post("http://kumi20.webd.pl/ksiega/api/getOnas.php",json).map(
+
+      return this._http.get(this.uri+"getOnas.php").map(
             res => res.json()
       )
   }
     
   getOferta(){
-      const json = JSON.stringify(
-      {
-          'idUser': this.idUser     
-      })
-      return this._http.post("http://kumi20.webd.pl/ksiega/api/getOferta.php",json).map(
+     
+      return this._http.get(this.uri+"getOferta.php").map(
             res => res.json()
       )
-  }    
+  } 
+  
+  getKontakt(){
+      return this._http.get(this.uri+"getKontakt.php").map(
+          res => res.json()
+      )
+  }
 
 }

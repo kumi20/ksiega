@@ -1,11 +1,18 @@
 .kpir{
 	width:100vw;
 	height:100vh;
-	background-image: url(../../assets/kpir.jpg);
+	background-image: url(../../assets/macbook-926425-1920-1920x1279-92.jpg);
 	background-size: cover;
 }
 
 h1{
 	color:#ffffff;
 	
+}
+
+.row{
+    padding-bottom: 0px;
+}
+.loginFacebook{
+    width:20vw;
 }

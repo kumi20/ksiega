@@ -13,8 +13,10 @@ export class DashboardComponent implements OnInit {
   constructor(private kumiService: KumiService) { }
 
   oNas: string = '';
-  oferta: string = ''; 
+  oferta: string = '';
+  kontakt: string = '';
   wyslano: boolean = false;  
+  
   emailSend;
     
   ngOnInit() {
@@ -27,6 +29,9 @@ export class DashboardComponent implements OnInit {
             res =>  this.oferta = res[0].static_content
       )
       
+      this.kumiService.getKontakt().subscribe(
+          res => this.kontakt = res[0].static_content
+      )
 
   }
     

@@ -3,10 +3,20 @@
 body{
     text-align: justify;
     font-size:18px;
+    background-image: url(assets/iphone-926663-1920-1920x1280-94.jpg);
+    background-size: cover;
+
 }
 
 p{
     font-size: 18px;
+}
+
+.ksiega {
+  background-color: #ffffff;
+  height: 100%;
+  min-height: 100vh;
+  opacity: 0.9;
 }
 .row{
     padding: 20px 20px 20px 20px;
@@ -14,4 +24,42 @@ p{
 
 #oNas{
     padding-top: 40px;
+}
+
+.table{
+  vertical-align:middle;
+}
+.table tr td{
+    background-color: #ffffff;
+    border-bottom: 1px solid #111111;
+  
+}
+
+.table tr td:first-child{
+    border-left: 1px solid #111111;
+}
+
+.table tr td:last-child{
+    border-right: 1px solid #111111;
+}
+
+.table tr:hover{
+    cursor: pointer;
+    background-color: #111111;
+}
+
+.table th{
+    background-color: #111111;
+    color: #ffffff;
+    font-weight: normal;
+    height: 50px;
+    padding: 10px 10px 10px 10px
+}
+
+.table th:first-child{
+   border-top-left-radius: 10px;
+}
+
+.table th:last-child{
+    border-top-right-radius: 10px;  
 }
