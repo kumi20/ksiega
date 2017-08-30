@@ -1,0 +1,52 @@
+<div class="ksiega">
+<app-navbar></app-navbar>
+  <div class="container">
+      <div class="row">
+             <div class="col-lg-3">
+              <p>Rok:</p>
+              <select class="form-control" [(ngModel)]="year">
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+              </select>
+            </div>
+            <div class="col-lg-3">
+                <button class="btn btn-success" style="margin-top: 35px;" (click)="pokaz()">Pokaż</button>
+            </div>
+       </div>
+       <div class="row">
+           <div class="col-lg-12">
+               <table class="table table-hover">
+                  <thead>
+                      <th>Rok</th>
+                      <th>Miesiąc</th>
+                      <th>Termin płatności</th>
+                      <th>Składka społeczna</th>
+                      <th>Składka zdrowotna</th>
+                      <th>Składka na fundusz pracy</th>
+                      <th></th>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let i of zus" >
+                          <td>{{i.rok}}</td>
+                          <td>{{i.miesiac}}</td>
+                          <td>{{i.termin_platnosci}}</td>
+                          <td>{{i.skladka_spoleczne}}</td>
+                          <td>{{i.skladka_zdrowotne}}</td>
+                          <td>{{i.skladka_fundusz_pracy}}</td>
+                          <td><button class="btn btn-danger" (click)="usun(i.id)">usuń</button></td>
+                      </tr>
+                  </tbody>
+               </table>
+           </div>
+       </div>
+       
+       <div class="row">
+           <div class="col-lg-3"><a routerLink="/addZus" class="btn btn-success">Dodaj składkę</a></div>
+       </div>
+       
+  </div>
+</div>
