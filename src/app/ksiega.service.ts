@@ -221,4 +221,17 @@ export class KsiegaService {
       )
     }
   
+    //funkcja pobiera składki zus
+    getZus(year){
+        const json = JSON.stringify(
+        {
+          'idUser':this.idUser,
+          'year': year,
+        })
+      
+      return this._http.post(this.uri+"getZus.php", json).map(
+          response => response.json()
+      )
+    }
+  
 }

@@ -29,6 +29,8 @@ import { KontrahenciComponent } from './kontrahenci/kontrahenci.component';
 import { AddKontrahenciComponent } from './add-kontrahenci/add-kontrahenci.component';
 import { MailComponent } from './mail/mail.component';
 import { DochodowyComponent } from './dochodowy/dochodowy.component';
+import { ZusComponent } from './zus/zus.component';
+import { AddZusComponent } from './add-zus/add-zus.component';
 
 
 let providers = {
@@ -56,7 +58,9 @@ let providers = {
     KontrahenciComponent,
     AddKontrahenciComponent,
     MailComponent,
-    DochodowyComponent
+    DochodowyComponent,
+    ZusComponent,
+    AddZusComponent
   ],
   imports: [
     BrowserModule,
