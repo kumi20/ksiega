@@ -234,4 +234,41 @@ export class KsiegaService {
       )
     }
   
+    //wysokośc składek
+    getWysokoscSkladek(year){
+        const json = JSON.stringify(
+        {
+          'rok': year,
+        })
+      
+      return this._http.post(this.uri+"wysokoscSkladek.php", json).map(
+          response => response.json()
+      )
+    }
+  
+    //zapis skladki zus
+    saveSkladkaZus(skladka){
+        const json = JSON.stringify(
+        {
+          'idUser':this.idUser,
+          'skladka': skladka
+        })
+      
+      return this._http.post(this.uri+"addSkladkeZUS.php", json).map(
+          response => response.json()
+      )
+    }
+  
+    //usuwa składkę zus
+    deleteSkladkaZus(id){
+        const json = JSON.stringify(
+        {
+          'id':id,
+        })
+        
+        return this._http.post(this.uri+"deleteSkZus.php", json).map(
+          response => response.json()
+      )
+    }
+  
 }

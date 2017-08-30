@@ -1,14 +1,14 @@
 <div class="ksiega">
 <app-navbar></app-navbar>
   <div class="container">
-     <form [formGroup]="skladka">
+     <form [formGroup]="skladka" (ngSubmit)="zapisz(skladka.value)">
       <div class="row">
           <h3>Okres</h3>
           <div class="col-lg-6">
               <div class="row">
                   <div class="col-lg-6">Miesiąc</div>
                   <div class="col-lg-6">
-                      <select class="form-control" >
+                      <select class="form-control" formControlName="miesiac" (change)="changeMounth()">
                           <option value="01">styczeń</option>
                           <option value="02">luty</option>
                           <option value="03">marzec</option>
@@ -26,13 +26,13 @@
               </div>
               <div class="row">
                   <div class="col-lg-6">Termin płatności</div>
-                  <div class="col-lg-6"><input class="form-control"></div>
+                  <div class="col-lg-6"><input class="form-control" formControlName="termin"></div>
               </div>
           </div>
           <div class="col-lg-6">
               <div class="row">
                   <div class="col-lg-6 text-right">Rok</div>
-                  <div class="col-lg-6"><input class="form-control"></div>
+                  <div class="col-lg-6"><input class="form-control" formControlName="rok"></div>
               </div>
           </div>
       </div>
@@ -40,31 +40,31 @@
       <div class="row">
           <h3>Składka na ubezpiecznie społeczne</h3>
           <div class="col-lg-3">Wysokość składki [zł]</div>
-          <div class="col-lg-3"><input class="form-control"></div>
+          <div class="col-lg-3"><input class="form-control" formControlName="spoleczne"></div>
           <div class="col-lg-3 text-right">Data wpłaty</div>
-          <div class="col-lg-3"><input class="form-control"></div>   
+          <div class="col-lg-3"><input class="form-control" formControlName="termin_spoleczne"></div>   
       </div>
       
       <div class="row">
           <h3>Składka na ubezpieczenie zdrowotne</h3>
           <div class="col-lg-3">Wysokość składki [zł]</div>
-          <div class="col-lg-3"><input class="form-control" ></div>
+          <div class="col-lg-3"><input class="form-control" formControlName="zdrowotne"></div>
           <div class="col-lg-3 text-right">Data wpłaty</div>
-          <div class="col-lg-3"><input class="form-control"></div>   
+          <div class="col-lg-3"><input class="form-control" formControlName="termin_zdrowotne"></div>   
       </div>
       
       <div class="row">
           <h3>Składki na fundusz pracy</h3>
           <div class="col-lg-3">Wysokość składki [zł]</div>
-          <div class="col-lg-3"><input class="form-control"></div>
+          <div class="col-lg-3"><input class="form-control" formControlName="fundusz"></div>
           <div class="col-lg-3 text-right">Data wpłaty</div>
-          <div class="col-lg-3"><input class="form-control"></div>   
+          <div class="col-lg-3"><input class="form-control" formControlName="termin_fundusz"></div>   
       </div>
       
       <div class="row">
           <div class="btn btn-group">
-              <button class="btn btn-default">Powrót</button>
-              <button class="btn btn-success">Zapisz</button>
+              <button class="btn btn-default" routerLink="/zus">Powrót</button>
+              <button type="submit" class="btn btn-success">Zapisz</button>
           </div>
       </div>
       </form>
