@@ -16,18 +16,18 @@ import { AddZusComponent } from './add-zus/add-zus.component';
 const routesConfig: Routes = [
 	{path: '', component: DashboardComponent,},
 	{path: 'login', component: LoginComponent},
-	{path: 'dashboard', component: DashboardComponent,  },
-	{path: 'ksiega', component: KsiegaComponent, },
-	{path: 'ksiega/1/:id', component: AddPrzychodComponent, },
-	{path: 'ksiega/0/:id', component: AddRozchodComponent, },
-	{path: 'addP', component: AddPrzychodComponent,},
-	{path: 'addR', component: AddRozchodComponent},
-	{path: 'kontrahenci', component: KontrahenciComponent},
-  {path: 'addKontrahenci', component: AddKontrahenciComponent},
-  {path: 'kontrahenci/:id', component: AddKontrahenciComponent},
-  {path: 'dochodowy', component: DochodowyComponent},
-  {path: 'zus', component: ZusComponent},
-  {path: 'addZus', component: AddZusComponent}
+	{path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+	{path: 'ksiega', component: KsiegaComponent, canActivate: [AuthGuard]},
+	{path: 'ksiega/1/:id', component: AddPrzychodComponent, canActivate: [AuthGuard]},
+	{path: 'ksiega/0/:id', component: AddRozchodComponent, canActivate: [AuthGuard]},
+	{path: 'addP', component: AddPrzychodComponent, canActivate: [AuthGuard]},
+	{path: 'addR', component: AddRozchodComponent, canActivate: [AuthGuard]},
+	{path: 'kontrahenci', component: KontrahenciComponent, canActivate: [AuthGuard]},
+  {path: 'addKontrahenci', component: AddKontrahenciComponent, canActivate: [AuthGuard]},
+  {path: 'kontrahenci/:id', component: AddKontrahenciComponent, canActivate: [AuthGuard]},
+  {path: 'dochodowy', component: DochodowyComponent, canActivate: [AuthGuard]},
+  {path: 'zus', component: ZusComponent, canActivate: [AuthGuard]},
+  {path: 'addZus', component: AddZusComponent, canActivate: [AuthGuard]}
 ]
 
 export const routerModule = RouterModule.forRoot(routesConfig, {
