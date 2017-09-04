@@ -32,6 +32,7 @@ import { DochodowyComponent } from './dochodowy/dochodowy.component';
 import { ZusComponent } from './zus/zus.component';
 import { AddZusComponent } from './add-zus/add-zus.component';
 import { WyposazenieComponent } from './wyposazenie/wyposazenie.component';
+import { AddWyposazenieComponent } from './add-wyposazenie/add-wyposazenie.component';
 
 
 let providers = {
@@ -62,7 +63,8 @@ let providers = {
     DochodowyComponent,
     ZusComponent,
     AddZusComponent,
-    WyposazenieComponent
+    WyposazenieComponent,
+    AddWyposazenieComponent
   ],
   imports: [
     BrowserModule,

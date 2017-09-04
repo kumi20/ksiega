@@ -8,8 +8,8 @@ import 'rxjs/add/operator/toPromise';
 export class KsiegaService {
 
   public headers;
-  //public idUser: string = '1484923258195547';
-  public idUser: string = localStorage.getItem('FacebookKsiegaToken');
+  public idUser: string = '1484923258195547';
+  //public idUser: string = localStorage.getItem('FacebookKsiegaToken');
   public uri: string = "http://kumi20.webd.pl/api/ksiega/"
 	
   constructor(private _http:Http) { 
@@ -317,6 +317,17 @@ export class KsiegaService {
         })
         
         return this._http.post(this.uri+"deleteKontrahent.php",json).map(
+            response => response.json()
+        )
+    }
+  
+    //pobiera listę środków trwałych
+    getWyposazenie(){
+        const json = JSON.stringify({
+            'idUser':this.idUser,
+        })
+        
+        return this._http.post(this.uri+"getWyposazenie.php", json).map(
             response => response.json()
         )
     }

@@ -12,6 +12,17 @@
               <th>Data likwidacji</th>
               <th>Przyczyna likwidacji</th>
             </thead>
+            <tbody>
+              <tr *ngFor="let i of wyposazenie" routerLink="/wyposazenie/{{i.id}}">
+                  <td>{{i.data_nabycia}}</td>
+                  <td>{{i.numer_dokumentu}}</td>
+                  <td>{{i.nazwa}}</td>
+                  <td>{{i.warotsc_poczatkowa}}</td>
+                  <td>{{i.miejsce_uzytkowania}}</td>
+                  <td>{{i.data_likwidacji}}</td>
+                  <td>{{i.przyczyna_likwidacji}}</td>
+              </tr>              
+            </tbody>
           </table>
       </div>
    </div>

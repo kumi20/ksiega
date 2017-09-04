@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { KsiegaService } from '../ksiega.service';
 
 @Component({
   selector: 'app-wyposazenie',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WyposazenieComponent implements OnInit {
 
-  constructor() { }
+  wyposazenie;
+  
+  constructor(private ksiegaService: KsiegaService) { }
 
   ngOnInit() {
+      this.ksiegaService.getWyposazenie().subscribe(
+          res => this.wyposazenie = res
+      )
   }
 
 }
