@@ -331,4 +331,23 @@ export class KsiegaService {
             response => response.json()
         )
     }
+  
+    //zapisuje wyposazenie
+    saveWyposazenie(value, id){
+        const json = JSON.stringify({
+            'idUser':this.idUser,
+            'data_nabycia': value.data_nabycia.date.year+'-'+value.data_nabycia.date.month+'-'+value.data_nabycia.date.day,
+            'nazwa': value.nazwa,
+            'miejsce_uzytkowania': value.miejsce_Uzytkowania,
+            'warotsc_poczatkowa': value.wartosc_poczotakowa,
+            'zlikwidowane': value.wyposazenie_zlikwidowane,
+            'data_likwidacji': value.data_likwidacji.date.year+'-'+value.data_likwidacji.date.month+'-'+value.data_likwidacji.date.day,
+            'przyczyna_likwidacji': value.przyczyna_Likwidacji,
+            'id': id
+        })
+        
+        return this._http.post(this.uri+"addWyposazenie.php", json).map(
+            response => response.json()
+        )
+    }
 }
