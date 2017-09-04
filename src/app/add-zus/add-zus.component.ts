@@ -45,10 +45,10 @@ export class AddZusComponent implements OnInit {
               let pom = dataToday.getMonth()+1;
               let day;
               if (pom < 10) day = '0'+pom.toString();  
-              this.skladka.controls['termin'].setValue(this.year+"-"+day+"-20");
-              this.skladka.controls['termin_spoleczne'].setValue(this.year+"-"+day+"-20");
-              this.skladka.controls['termin_zdrowotne'].setValue(this.year+"-"+day+"-20");
-              this.skladka.controls['termin_fundusz'].setValue(this.year+"-"+day+"-20");
+              this.skladka.controls['termin'].setValue(this.year+"-"+day+"-10");
+              this.skladka.controls['termin_spoleczne'].setValue(this.year+"-"+day+"-10");
+              this.skladka.controls['termin_zdrowotne'].setValue(this.year+"-"+day+"-10");
+              this.skladka.controls['termin_fundusz'].setValue(this.year+"-"+day+"-10");
           }
       )
   }
@@ -65,10 +65,10 @@ export class AddZusComponent implements OnInit {
           y++;
       }
     
-      this.skladka.controls['termin'].setValue(y+'-'+m+'-20');
-      this.skladka.controls['termin_spoleczne'].setValue(y+'-'+m+'-20');
-      this.skladka.controls['termin_zdrowotne'].setValue(y+'-'+m+'-20');
-      this.skladka.controls['termin_fundusz'].setValue(y+'-'+m+'-20');
+      this.skladka.controls['termin'].setValue(y+'-'+m+'-10');
+      this.skladka.controls['termin_spoleczne'].setValue(y+'-'+m+'-10');
+      this.skladka.controls['termin_zdrowotne'].setValue(y+'-'+m+'-10');
+      this.skladka.controls['termin_fundusz'].setValue(y+'-'+m+'-10');
 
   }
   
