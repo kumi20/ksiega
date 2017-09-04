@@ -33,4 +33,14 @@ export class AddKontrahenciComponent implements OnInit {
       )
   }
 
+  save(value){
+      this.ksiegaService.addKontrahent(value).subscribe(
+          res => this._route.navigateByUrl('/kontrahenci')
+      )
+  }
+  
+  back(){
+      this._route.navigateByUrl('/kontrahenci')
+  }
+
 }

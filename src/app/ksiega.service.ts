@@ -271,4 +271,27 @@ export class KsiegaService {
       )
     }
   
+    //funkcja dodaje kontrahenta
+    addKontrahent(data){
+        const json = JSON.stringify({
+            'idUser':this.idUser,
+            'nip': data.nip,
+            'name': data.nazwa,
+            'street': data.ulica,
+            'postcode': data.kodPocztowy,
+            'miejscowosc': data.miejscowosc,
+            'person': data.osobaKontaktowa,
+            'telephone': data.telefon,
+            'fax': data.fax,
+            'email': data.email,
+            'www': data.www,
+            'dostawca': data.dostawca,
+            'odbiorca': data.odbiorca 
+        })
+        
+        return this._http.post(this.uri+"addKon.php", json).map(
+          response => response.json()
+        )
+    }
+  
 }

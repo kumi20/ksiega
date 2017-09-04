@@ -2,7 +2,7 @@
 <div class="ksiega">
 <app-navbar></app-navbar>  
 <div class="container">
-   <form [formGroup]="kontrahenci">
+   <form [formGroup]="kontrahenci" (ngSubmit)="save(kontrahenci.value)">
     <h3>Dane firmy</h3>
     <div class="row">
         <div class="col-lg-3">
@@ -86,7 +86,7 @@
     </div>
     
     <div class="btn btn-group">
-        <button class="btn btn-default">Powrót</button>
+        <button class="btn btn-default" (click)="back()">Powrót</button>
         <button class="btn btn-success" [disabled]="!kontrahenci.valid">Zapisz</button>
     </div>
     </form>
