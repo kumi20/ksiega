@@ -30,9 +30,9 @@ const routesConfig: Routes = [
   {path: 'dochodowy', component: DochodowyComponent, canActivate: [AuthGuard]},
   {path: 'zus', component: ZusComponent, canActivate: [AuthGuard]},
   {path: 'addZus', component: AddZusComponent, canActivate: [AuthGuard]},
-  {path: 'wyposazenie', component: WyposazenieComponent},
-  {path: 'wyposazenie/:id', component: AddWyposazenieComponent},
-  {path: 'addWyposazenie', component: AddWyposazenieComponent},
+  {path: 'wyposazenie', component: WyposazenieComponent, canActivate: [AuthGuard]},
+  {path: 'wyposazenie/:id', component: AddWyposazenieComponent, canActivate: [AuthGuard]},
+  {path: 'addWyposazenie', component: AddWyposazenieComponent, canActivate: [AuthGuard]},
 ]
 
 export const routerModule = RouterModule.forRoot(routesConfig, {

@@ -8,8 +8,8 @@ import 'rxjs/add/operator/toPromise';
 export class KsiegaService {
 
   public headers;
-  public idUser: string = '1484923258195547';
-  //public idUser: string = localStorage.getItem('FacebookKsiegaToken');
+  //public idUser: string = '1484923258195547';
+  public idUser: string = localStorage.getItem('FacebookKsiegaToken');
   public uri: string = "http://kumi20.webd.pl/api/ksiega/"
 	
   constructor(private _http:Http) { 
@@ -337,6 +337,7 @@ export class KsiegaService {
         const json = JSON.stringify({
             'idUser':this.idUser,
             'data_nabycia': value.data_nabycia.date.year+'-'+value.data_nabycia.date.month+'-'+value.data_nabycia.date.day,
+            'numer_dokumentu': value.numer_dokumentu,
             'nazwa': value.nazwa,
             'miejsce_uzytkowania': value.miejsce_Uzytkowania,
             'warotsc_poczatkowa': value.wartosc_poczotakowa,
@@ -347,6 +348,28 @@ export class KsiegaService {
         })
         
         return this._http.post(this.uri+"addWyposazenie.php", json).map(
+            response => response.json()
+        )
+    }
+  
+    //pobiera szczegóły wyposazenia
+    getDetWyposazenie(id){
+        const json = JSON.stringify({
+            'id':id,
+        })
+        
+        return this._http.post(this.uri+"getDetWyposazenia.php", json).map(
+            response => response.json()
+        )
+    }
+  
+    //funkcja usuwa wyposazenie
+    deleteWyposazenie(id){
+        const json = JSON.stringify({
+            'id':id,
+        })
+        
+        return this._http.post(this.uri+"deleteWyposazenie.php", json).map(
             response => response.json()
         )
     }

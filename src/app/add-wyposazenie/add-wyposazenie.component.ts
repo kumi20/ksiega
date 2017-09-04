@@ -62,7 +62,28 @@ export class AddWyposazenieComponent implements OnInit {
     
       this.route.params.subscribe(params => this.idWyposazenie = params['id']);
       if (this.idWyposazenie !=null){
-        
+          this.ksiegaService.getDetWyposazenie(this.idWyposazenie).subscribe(
+              response => {
+                  console.log(response);
+                
+                  let data_nabycia = response[0].data_nabycia.split('-');
+                  if (data_nabycia[1] < 10) data_nabycia[1] = data_nabycia[1].substr(1,1);
+                  if (data_nabycia[2] < 10) data_nabycia[2] = data_nabycia[2].substr(1,1);
+                  this.wyposazenie.controls['data_nabycia'].setValue({date: {year: data_nabycia[0], month: data_nabycia[1], day: data_nabycia[2]}});
+                
+                  let data_likwidacji = response[0].data_likwidacji.split('-');
+                  if (data_likwidacji[1] < 10) data_likwidacji[1] = data_likwidacji[1].substr(1,1);
+                  if (data_likwidacji[2] < 10) data_likwidacji[2] = data_likwidacji[2].substr(1,1);
+                  this.wyposazenie.controls['data_likwidacji'].setValue({date: {year: data_likwidacji[0], month: data_likwidacji[1], day: data_likwidacji[2]}});
+                
+                  this.wyposazenie.controls['numer_dokumentu'].setValue(response[0].numer_dokumentu);
+                  this.wyposazenie.controls['nazwa'].setValue(response[0].nazwa);
+                  this.wyposazenie.controls['miejsce_Uzytkowania'].setValue(response[0].miejsce_uzytkowania);
+                  this.wyposazenie.controls['wartosc_poczotakowa'].setValue(response[0].warotsc_poczatkowa);
+                  this.wyposazenie.controls['wyposazenie_zlikwidowane'].setValue(!response[0].zlikwidowane);
+                  this.wyposazenie.controls['przyczyna_Likwidacji'].setValue(response[0].przyczyna_likwidacji);
+              }
+          )
       }
       else this.idWyposazenie = 0;
   }
@@ -76,5 +97,11 @@ export class AddWyposazenieComponent implements OnInit {
   powrot(){
       this._route.navigateByUrl('/wyposazenie');
   }
+  
+  usun(){
+      this.ksiegaService.deleteWyposazenie(this.idWyposazenie).subscribe(
+          response => this._route.navigateByUrl('/wyposazenie')
+      )
+  }  
 
 }
