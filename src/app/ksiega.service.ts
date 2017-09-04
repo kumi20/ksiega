@@ -8,7 +8,8 @@ import 'rxjs/add/operator/toPromise';
 export class KsiegaService {
 
   public headers;
-  public idUser: string = localStorage.getItem("FacebookKsiegaToken");
+  //public idUser: string = '1484923258195547';
+  public idUser: localStorage.getItem('FacebookKsiegaToken');
   public uri: string = "http://kumi20.webd.pl/api/ksiega/"
 	
   constructor(private _http:Http) { 
@@ -272,7 +273,7 @@ export class KsiegaService {
     }
   
     //funkcja dodaje kontrahenta
-    addKontrahent(data){
+    addKontrahent(data, id){
         const json = JSON.stringify({
             'idUser':this.idUser,
             'nip': data.nip,
@@ -286,7 +287,8 @@ export class KsiegaService {
             'email': data.email,
             'www': data.www,
             'dostawca': data.dostawca,
-            'odbiorca': data.odbiorca 
+            'odbiorca': data.odbiorca,
+            'id': id
         })
         
         return this._http.post(this.uri+"addKon.php", json).map(
@@ -294,4 +296,26 @@ export class KsiegaService {
         )
     }
   
+    //funckja pobiera szczegóły kontrahenta
+    getDetKon(id){
+        const json = JSON.stringify({
+            'idUser':this.idUser,
+            'idKon':id
+        })
+        
+        return this._http.post(this.uri+"getDetKon.php", json).map(
+            response => response.json()
+        )
+    }
+  
+    //usuwanie kontrahenta
+    deleteKontrahent(id){
+        const json = JSON.stringify({
+            'id':id
+        })
+        
+        return this._http.post(this.uri+"deleteKontrahent.php",json).map(
+            response => response.json()
+        )
+    }
 }
