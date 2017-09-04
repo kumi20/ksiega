@@ -16,7 +16,7 @@ import { AddZusComponent } from './add-zus/add-zus.component';
 const routesConfig: Routes = [
 	{path: '', component: DashboardComponent,},
 	{path: 'login', component: LoginComponent},
-	{path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+	{path: 'dashboard', component: DashboardComponent},
 	{path: 'ksiega', component: KsiegaComponent, canActivate: [AuthGuard]},
 	{path: 'ksiega/1/:id', component: AddPrzychodComponent, canActivate: [AuthGuard]},
 	{path: 'ksiega/0/:id', component: AddRozchodComponent, canActivate: [AuthGuard]},

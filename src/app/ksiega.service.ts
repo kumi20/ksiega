@@ -8,7 +8,7 @@ import 'rxjs/add/operator/toPromise';
 export class KsiegaService {
 
   public headers;
-  public idUser: string = '1484923258195547';
+  public idUser: string = localStorage.getItem("FacebookKsiegaToken");
   public uri: string = "http://kumi20.webd.pl/api/ksiega/"
 	
   constructor(private _http:Http) { 

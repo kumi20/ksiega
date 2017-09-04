@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 		  			let userid = data;
 		  			console.log(userid['uid']);
 		  			localStorage.setItem('FacebookKsiegaToken', userid['uid']);
-		  			this._router.navigateByUrl('/');
+		  			this._router.navigateByUrl('/ksiega');
                   //user data 
                   //name, image, uid, provider, uid, email, token (accessToken for Facebook & google, no token for linkedIn), idToken(only for google) 
                 }
@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
   }
 
 	login(){
-		localStorage.setItem('FacebookKsiegaToken', "1484923258195547");
 		this._router.navigate(['/dashboard']);
 	}
 
