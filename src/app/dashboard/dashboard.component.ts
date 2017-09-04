@@ -15,9 +15,6 @@ export class DashboardComponent implements OnInit {
   oNas: string = '';
   oferta: string = '';
   kontakt: string = '';
-  wyslano: boolean = false;  
-  
-  emailSend;
     
   ngOnInit() {
       

@@ -33,5 +33,17 @@ export class KumiService {
           res => res.json()
       )
   }
+  
+  sendMail(data){
+      let json = JSON.stringify({
+          'name': data.name,
+          'mail': data.email,
+          'message': data.message
+      })
+      
+      return this._http.post(this.uri+"sendMail.php",json).map(
+          res => res.json()
+      )
+  }
 
 }

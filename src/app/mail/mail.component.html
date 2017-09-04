@@ -1,4 +1,5 @@
-<form [formGroup]="emailSend" (ngSubmit)="send(emailSend.value)">
+<ng-template [ngIf]="!wyslano">
+        <form [formGroup]="emailSend" (ngSubmit)="send(emailSend.value)">
             <div class="form-group" [ngClass]="{'has-error':!emailSend.controls['name'].valid && emailSend.controls['name'].touched}">
 				        <label for="name">Imię i nazwisko *</label>
 				        <input type="text" class="form-control" formControlName="name">
@@ -19,4 +20,11 @@
                           
             <button type="submit" class="btn pull-left" [disabled]="!emailSend.valid"   
                             [ngClass]="{'btn-default': emailSend.valid, 'dis':!emailSend.valid}">Wyślij wiadomość</button>
-</form>
+    </form>               
+                   
+                        
+</ng-template>
+<ng-template [ngIf]="wyslano">
+    <h3>Wiadomość została wysłana</h3>
+</ng-template>
+

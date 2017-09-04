@@ -10,7 +10,9 @@ import { KumiService } from '../kumi.service';
 export class MailComponent implements OnInit {
 
   emailSend;
-    
+  wyslano: boolean = false;    
+  emailSendd;
+  
   constructor(private kumiService: KumiService) { }
 
   ngOnInit() {
@@ -23,7 +25,11 @@ export class MailComponent implements OnInit {
   }
     
   send(wiadomosc){
-      console.log("wyslano", wiadomosc)
+      this.wyslano = true;
+      this.kumiService.sendMail(wiadomosc).subscribe(
+          res => console.log(wiadomosc)
+      )
+    
   }
 
 }

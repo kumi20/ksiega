@@ -75,12 +75,7 @@
     <div class="container">
         <div class="row" style="color:#ffffff">
             <div class="col-lg-6">
-                <ng-template [ngIf]="!wyslano" [ngIfElse]="emailSend">
-                    <app-mail></app-mail>     
-                </ng-template>
-                <ng-template #wiadomosc>
-                    Wysłano
-                </ng-template>
+                <app-mail></app-mail> 
             </div>
             
             <div class="col-lg-6">
