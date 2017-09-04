@@ -10,6 +10,7 @@ import { AddKontrahenciComponent } from './add-kontrahenci/add-kontrahenci.compo
 import { DochodowyComponent } from './dochodowy/dochodowy.component';
 import { ZusComponent } from './zus/zus.component';
 import { AddZusComponent } from './add-zus/add-zus.component';
+import { WyposazenieComponent } from './wyposazenie/wyposazenie.component'
 
 
 /// ROUTING
@@ -27,7 +28,8 @@ const routesConfig: Routes = [
   {path: 'kontrahenci/:id', component: AddKontrahenciComponent, canActivate: [AuthGuard]},
   {path: 'dochodowy', component: DochodowyComponent, canActivate: [AuthGuard]},
   {path: 'zus', component: ZusComponent, canActivate: [AuthGuard]},
-  {path: 'addZus', component: AddZusComponent, canActivate: [AuthGuard]}
+  {path: 'addZus', component: AddZusComponent, canActivate: [AuthGuard]},
+  {path: 'wyposazenie', component: WyposazenieComponent},
 ]
 
 export const routerModule = RouterModule.forRoot(routesConfig, {

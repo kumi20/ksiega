@@ -31,6 +31,7 @@ import { MailComponent } from './mail/mail.component';
 import { DochodowyComponent } from './dochodowy/dochodowy.component';
 import { ZusComponent } from './zus/zus.component';
 import { AddZusComponent } from './add-zus/add-zus.component';
+import { WyposazenieComponent } from './wyposazenie/wyposazenie.component';
 
 
 let providers = {
@@ -60,7 +61,8 @@ let providers = {
     MailComponent,
     DochodowyComponent,
     ZusComponent,
-    AddZusComponent
+    AddZusComponent,
+    WyposazenieComponent
   ],
   imports: [
     BrowserModule,
