@@ -1,0 +1,70 @@
+<div class="ksiega_bg">
+   <div class="ksiega">
+      <app-navbar></app-navbar>
+      <div class="container">
+         <form [formGroup]="wyposazenie" (ngSubmit)="save(wyposazenie.value)">
+              <div class="row">
+                  <h3>Dokument stwierdzający nabycie</h3>
+                  <div class="col-lg-6">
+                      <div class="row">
+                          <div class="col-lg-6 text-right">Data nabycia:</div> 
+                          <div class="col-lg-6" [ngClass]="{'form-group has-error':!wyposazenie.controls['data_nabycia'].valid && wyposazenie.controls['data_nabycia'].touched}">
+                              <my-date-picker name="mydate" [options]="myDatePickerOptions" formControlName="data_nabycia"></my-date-picker>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="row">
+                          <div class="col-lg-6 text-right">Numer dokumentu:</div> 
+                          <div class="col-lg-6" [ngClass]="{'form-group has-error':!wyposazenie.controls['numer_dokumentu'].valid && wyposazenie.controls['numer_dokumentu'].touched}">
+                             <input class="form-control" formControlName="numer_dokumentu">
+                          </div>
+                      </div>
+                  </div>
+              </div>  
+              
+              <div class="row">
+                  <h3>Informacje o wyposażeniu</h3>
+                  <div class="row">
+                      <div class="col-lg-3 text-right">Nazwa wyposażenia:</div>
+                      <div class="col-lg-3" [ngClass]="{'form-group has-error':!wyposazenie.controls['nazwa'].valid && wyposazenie.controls['nazwa'].touched}"><input class="form-control" formControlName="nazwa"></div>
+                  </div>
+                  
+                  <div class="row">
+                      <div class="col-lg-3 text-right">Miejsce użytkowania wyposażenia:</div>
+                      <div class="col-lg-3" [ngClass]="{'form-group has-error':!wyposazenie.controls['miejsce_Uzytkowania'].valid && wyposazenie.controls['miejsce_Uzytkowania'].touched}"><input class="form-control" formControlName="miejsce_Uzytkowania"></div>
+                  </div>
+                  
+                  <div class="row">
+                      <div class="col-lg-3 text-right">Wartośc początkowa:</div>
+                      <div class="col-lg-3" [ngClass]="{'form-group has-error':!wyposazenie.controls['wartosc_poczotakowa'].valid && wyposazenie.controls['wartosc_poczotakowa'].touched}"><input class="form-control" formControlName="wartosc_poczotakowa"></div>
+                  </div>
+              </div>  
+              
+              <div class="row">
+                  <h3>Likwidacja</h3>
+                  <div class="row">
+                      <div class="col-lg-3 text-right">Wyposażenie zlikwidowane:</div>
+                      <div class="col-lg-3"><input type="checkbox" formControlName="wyposazenie_zlikwidowane"></div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-3 text-right">Data likwidacji:</div>
+                      <div class="col-lg-3"><my-date-picker name="mydate" [options]="myDatePickerOptions" formControlName="data_likwidacji"></my-date-picker></div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-3 text-right">Przyczyna likwidacji:</div>
+                      <div class="col-lg-3"><input class="form-control" formControlName="przyczyna_Likwidacji"></div>
+                  </div>
+              </div> 
+              
+              <div class="row">
+                  <div class="btn btn-group">
+                      <button class="btn btn-default" (click)="powrot()">Powrót</button>
+                      <button class="btn btn-danger">Usuń</button>
+                      <button class="btn btn-success" [disabled]="!wyposazenie.valid">Zapisz</button>
+                  </div>
+              </div>                                                      
+         </form>
+      </div>
+  </div>
+</div>
