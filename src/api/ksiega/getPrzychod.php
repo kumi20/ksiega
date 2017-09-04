@@ -1,9 +1,10 @@
 <?php
 
 	include('../config/config.php');
-	$idUser = '1484923258195547';
+	
 
 	$data = json_decode(file_get_contents("php://input"));
+  $idUser = $data->id;
 	$idPrzychodu = $data->id;
 
 	$q = "SELECT kpir.miesiac, kpir.rok, kpir.data_zd, kpir.nr_dow, id_kont, kpir.przych, kpir.pozostale_przychody, 

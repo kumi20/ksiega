@@ -60,6 +60,7 @@ export class KsiegaService {
   getPrzychod(id){
 	  var json = JSON.stringify(
 		  {
+        'idUser':this.idUser,
 			  'id':id
 		  }
 	  );
@@ -73,6 +74,7 @@ export class KsiegaService {
   getRozchod(id){
 	  var json = JSON.stringify(
 		  {
+        'idUser':this.idUser,
 			  'id':id
 		  }
 	  )
