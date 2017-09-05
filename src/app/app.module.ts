@@ -37,6 +37,8 @@ import { DowodyComponent } from './dowody/dowody.component';
 import { AddDowodComponent } from './add-dowod/add-dowod.component';
 import { PojazdComponent } from './pojazd/pojazd.component';
 import { AddPojazdComponent } from './add-pojazd/add-pojazd.component';
+import { EwidencjaComponent } from './ewidencja/ewidencja.component';
+import { AddTrasaComponent } from './add-trasa/add-trasa.component';
 
 
 let providers = {
@@ -72,7 +74,9 @@ let providers = {
     DowodyComponent,
     AddDowodComponent,
     PojazdComponent,
-    AddPojazdComponent
+    AddPojazdComponent,
+    EwidencjaComponent,
+    AddTrasaComponent
   ],
   imports: [
     BrowserModule,

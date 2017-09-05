@@ -1,0 +1,54 @@
+<div class="ksiega_bg">
+   <div class="ksiega">
+    <app-navbar></app-navbar>
+    
+    <div class="container">
+       <form [formGroup]="trasa" (ngSubmit)="zapisz(trasa.value)">
+        <div class="row">
+            <h3>Informacje o wyjeżdzie</h3>
+            <div class="col-lg-3 text-right">Pojazd:</div>
+            <div class="col-lg-3">
+                <select class="form-control" formControlName="pojazdyid" (change)="zmianaStawki()">
+                    <option value="">-- wybierz --</option>
+                    <option *ngFor="let i of listaPojazdow" value="{{i.id}}">{{i.Marka}}</option>
+                </select>
+            </div>
+            <div class="col-lg-3 text-right">Data wyjazdu:</div>
+            <div class="col-lg-3"><my-date-picker name="mydate" [options]="myDatePickerOptions" formControlName="termin"></my-date-picker></div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-3 text-right">Trasa skąd-dokąd:</div>
+            <div class="col-lg-9"><input class="form-control" formControlName="trasa"></div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-3 text-right">Cel wyjazdu:</div>
+            <div class="col-lg-9"><input class="form-control" formControlName="cel"></div>
+        </div>
+        
+        <div class="row">
+            <h3>Parametry wyjazdu</h3>
+            <div class="col-lg-3 text-right">Ilość przejechanych km:</div>
+            <div class="col-lg-3"><input class="form-control" formControlName="km"></div>
+            <div class="col-lg-3 text-right">Stawka za 1km przebiegu:</div>
+            <div class="col-lg-3"><input class="form-control" formControlName="stawka"></div>
+        </div>
+        
+        <div class="row">
+            <h3>Uwagi</h3>
+            <div class="col-lg-12"><input class="form-control" formControlName="uwagi"></div>
+        </div>
+        
+        <div class="row">
+            <div class="btn btn-group">
+                <button class="btn btn-default" (click)="powrot()">Powrót</button>
+                <button class="btn btn-danger" (click)="usun()">Usuń</button>
+                <button class="btn btn-success">Zapisz</button>
+            </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

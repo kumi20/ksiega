@@ -20,6 +20,6 @@
 			$arr[] = $row;
 		}
 	header('Content-Type: application/json');
-    header('Access-Control-Allow-Origin: *');
+  header('Access-Control-Allow-Origin: *');
 	echo $json_response = json_encode($arr);
 ?>

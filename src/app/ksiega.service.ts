@@ -491,4 +491,58 @@ export class KsiegaService {
             response => response.json()
         )
     }
+  
+    //funkcja zwraca kilometrowke
+    getEwidencja(year,mounth){
+        const json = JSON.stringify({
+            'idUser':this.idUser,
+            'year': year,
+            'mounth': mounth
+        })
+        
+        return this._http.post(this.uri+"getTrasa.php", json).map(
+            response => response.json()
+        )
+    }
+  
+    //funkcja zapisuje trase
+    saveTrasa(values, id){
+        const json = JSON.stringify({
+            'idUser':this.idUser,
+            'termin': values.termin.date.year+'-'+values.termin.date.month+'-'+values.termin.date.day,
+            'trasa': values.trasa,
+            'km': values.km,
+            'cel': values.cel,
+            'stawka': values.stawka,
+            'uwagi': values.uwagi,
+            'pojazdyid': values.pojazdyid,
+            'id': id
+        })
+        
+        return this._http.post(this.uri+"addTrasa.php", json).map(
+            response => response.json()
+        )
+    }
+  
+    //funckja pobiera szczegóły trasy
+    getDetTrasa(id){
+        const json = JSON.stringify({
+            'id':id
+        })
+        
+        return this._http.post(this.uri+"getDetTrasa.php", json).map(
+            response => response.json()
+        )
+    }
+    
+    //funkcja usuwa trase
+    deleteTrasa(id){
+        const json = JSON.stringify({
+            'id':id
+        })
+        
+        return this._http.post(this.uri+"deleteTrasa.php", json).map(
+            response => response.json()
+        )
+    }
 }

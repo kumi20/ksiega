@@ -16,6 +16,8 @@ import { DowodyComponent } from './dowody/dowody.component';
 import { AddDowodComponent } from './add-dowod/add-dowod.component';
 import { PojazdComponent } from './pojazd/pojazd.component';
 import { AddPojazdComponent } from './add-pojazd/add-pojazd.component';
+import { EwidencjaComponent } from './ewidencja/ewidencja.component';
+import { AddTrasaComponent } from './add-trasa/add-trasa.component';
 
 /// ROUTING
 const routesConfig: Routes = [
@@ -41,7 +43,10 @@ const routesConfig: Routes = [
   {path: 'addDowod', component: AddDowodComponent, canActivate: [AuthGuard]},
   {path: 'pojazd', component: PojazdComponent, canActivate: [AuthGuard]},
   {path: 'addPojazd', component: AddPojazdComponent, canActivate: [AuthGuard]},
-  {path: 'pojazd/:id', component: AddPojazdComponent, canActivate: [AuthGuard]}
+  {path: 'pojazd/:id', component: AddPojazdComponent, canActivate: [AuthGuard]},
+  {path: 'ewidencja', component: EwidencjaComponent, canActivate: [AuthGuard]},
+  {path: 'addTrasa', component: AddTrasaComponent, canActivate: [AuthGuard]},
+  {path: 'trasa/:id', component: AddTrasaComponent, canActivate: [AuthGuard]}
 ]
 
 export const routerModule = RouterModule.forRoot(routesConfig, {
