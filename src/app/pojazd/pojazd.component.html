@@ -1,0 +1,30 @@
+<div class="ksiega_bg">
+   <div class="ksiega">
+      <app-navbar></app-navbar>
+      <div class="container">
+        <div class="row">
+             <table class="table table-hover">
+                <thead>
+                  <th>Identyfikator</th>
+                  <th>Marka pojazdu</th>
+                  <th>Nr rejestracyjny</th>
+                  <th>Pojemność silnika [cm3]</th>
+                  <th>Stawka za 1km [zł]</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let i of pojazdy" routerLink="/pojazd/{{i.id}}">
+                        <td>{{i.Identyfikator}}</td>
+                        <td>{{i.Marka}}</td>
+                        <td>{{i.Rejestracja}}</td>
+                        <td>{{i.Pojemnosc_silnika}}</td>
+                        <td>{{i.Stawka}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+           <div class="col-lg-3"><a routerLink="/addPojazd" class="btn btn-success">Dodaj pojazd</a></div>
+       </div>
+      </div>
+  </div>
+</div>

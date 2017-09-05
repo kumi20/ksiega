@@ -1,0 +1,42 @@
+<div class="ksiega_bg">
+   <div class="ksiega">
+      <app-navbar></app-navbar>
+      <div class="container">
+          <h3>Dane pojazdu osobowego</h3>
+          <form [formGroup]="pojazd" (ngSubmit)="zapisz(pojazd.value)">
+          <div class="row">
+              <div class="col-lg-3 text-right">Identyfikator:</div>
+              <div class="col-lg-3"><input class="form-control" formControlName="identyfikator"></div>
+          </div>
+          
+          <div class="row">
+              <div class="col-lg-3 text-right">Marka samochodu:</div>
+              <div class="col-lg-3"><input class="form-control" formControlName="Marka"></div>
+          </div>
+          
+          <div class="row">
+              <div class="col-lg-3 text-right">Numer rejestracyjny:</div>
+              <div class="col-lg-3"><input class="form-control" formControlName="Rejestracja"></div>
+          </div>
+          
+          <div class="row">
+              <div class="col-lg-3 text-right">Pojemność silnika [cm3]:</div>
+              <div class="col-lg-3"><input class="form-control" formControlName="Pojemnosc_silnika"></div>
+          </div>
+          
+          <div class="row">
+              <div class="col-lg-3 text-right">Stawka za 1km przebiegu [zł]:</div>
+              <div class="col-lg-3"><input class="form-control" formControlName="Stawka"></div>
+          </div>
+          
+          <div class="row">
+              <div class="btn btn-group">
+                  <button class="btn btn-default" (click)="powrot()">Powrót</button>
+                  <button class="btn btn-danger" (click)="usun()">Usuń</button>
+                  <button class="btn btn-success">Zapisz</button>
+              </div>
+          </div>
+          </form>
+     </div>
+  </div>
+</div>

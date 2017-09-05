@@ -441,4 +441,54 @@ export class KsiegaService {
             response => response.json()
         )
     }
+  
+    //funkcja pobiera listę pojazdów
+    getPojazd(){
+        const json = JSON.stringify({
+            'idUser':this.idUser
+        })
+        
+        return this._http.post(this.uri+"getPojazdy.php", json).map(
+            response => response.json()
+        )
+    }
+  
+    //funkcja pobiera szczegóły pojazdu
+    getDetPojazdu(id){
+        const json = JSON.stringify({
+            'id':id,
+        })
+        
+        return this._http.post(this.uri+"getDetPojazdy.php", json).map(
+            response => response.json()
+        )
+    }
+  
+    //funkcja zaspisuje dane pojazdu
+    savePojazd(value, id){
+        const json = JSON.stringify({
+            'idUser':this.idUser,
+            'id': id,
+            'identyfikator': value.identyfikator,
+            'Marka': value.Marka,
+            'Rejestracja': value.Rejestracja,
+            'Pojemnosc_silnika': value.Pojemnosc_silnika,
+            'Stawka': value.Stawka,
+        })
+        
+        return this._http.post(this.uri+"addPojazd.php", json).map(
+            response => response.json()
+        )
+    }
+  
+    //funkcja usuwa pojazd
+    deletePojazd(id){
+        const json = JSON.stringify({
+            'id':id
+        })
+        
+        return this._http.post(this.uri+"deletePojazd.php", json).map(
+            response => response.json()
+        )
+    }
 }

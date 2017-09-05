@@ -35,6 +35,8 @@ import { WyposazenieComponent } from './wyposazenie/wyposazenie.component';
 import { AddWyposazenieComponent } from './add-wyposazenie/add-wyposazenie.component';
 import { DowodyComponent } from './dowody/dowody.component';
 import { AddDowodComponent } from './add-dowod/add-dowod.component';
+import { PojazdComponent } from './pojazd/pojazd.component';
+import { AddPojazdComponent } from './add-pojazd/add-pojazd.component';
 
 
 let providers = {
@@ -68,7 +70,9 @@ let providers = {
     WyposazenieComponent,
     AddWyposazenieComponent,
     DowodyComponent,
-    AddDowodComponent
+    AddDowodComponent,
+    PojazdComponent,
+    AddPojazdComponent
   ],
   imports: [
     BrowserModule,
