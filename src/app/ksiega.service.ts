@@ -373,4 +373,72 @@ export class KsiegaService {
             response => response.json()
         )
     }
+  
+    //funkcja pobiera dowody wewnętrzne
+    getDowody(year){
+        const json = JSON.stringify({
+            'idUser':this.idUser,
+            'year': year
+        })
+        
+        return this._http.post(this.uri+"getDowody.php", json).map(
+            response => response.json()
+        )
+    }
+  
+    //funckja pobiera szczegoly dowodu wewnetrznego
+    getDetDowodu(id){
+        const json = JSON.stringify({
+            'id':id,
+        })
+        
+        return this._http.post(this.uri+"getDetDowodu.php", json).map(
+            response => response.json()
+        )
+    }
+  
+    //funkcja zapisuje dowod
+    saveDowod(value, id){
+        const json = JSON.stringify({
+            'idUser':this.idUser,
+            'id': id,
+            'data': value.data_wystawienia.date.year+'-'+value.data_wystawienia.date.month+'-'+value.data_wystawienia.date.day,
+            'numer': value.nr_dowdu,
+            'nazwa': value.nazwa,
+            'ilosc': value.ilosc,
+            'jednostka': value.jednostka,
+            'cena': value.cena,
+            'osoba': value.osoba,
+            'opis': value.opis,
+            'selectedDow': value.kolumna,
+            
+        })
+        
+        return this._http.post(this.uri+"addDowod.php", json).map(
+            response => response.json()
+        )  
+    }
+  
+    //funkcja usuwa dowod
+    deleteDowod(id){
+        const json = JSON.stringify({
+            'id':id,
+        })
+        
+        return this._http.post(this.uri+"deleteDowod.php", json).map(
+            response => response.json()
+        )
+    }
+    
+    //funkcja ksieguje dowod
+    ksiegujDowod(id){
+        const json = JSON.stringify({
+            'id':id,
+            'idUser':this.idUser,
+        })
+        
+        return this._http.post(this.uri+"ksiegujDowod.php", json).map(
+            response => response.json()
+        )
+    }
 }

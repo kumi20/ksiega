@@ -1,0 +1,72 @@
+<div class="ksiega_bg">
+  <div class="ksiega">
+    <app-navbar></app-navbar>
+      <div class="container">
+        <form [formGroup]="dowody" (ngSubmit)="zapisz(dowody.value)">
+         <div class="row">
+             <h3>Dane dowodu wewnętrznego</h3>
+             <div class="col-lg-3 text-right">Numer dowodu:</div>
+             <div class="col-lg-3"><input class="form-control" formControlName="nr_dowdu"></div>
+             <div class="col-lg-3 text-right">Data wystawienia:</div>
+             <div class="col-lg-3"><my-date-picker name="mydate" [options]="myDatePickerOptions" formControlName="data_wystawienia"></my-date-picker></div>
+         </div>
+         
+         <div class="row">
+             <h3>Nazwa towaru, opłaty lub tytuł i żródło przychodu</h3>
+             <div class="col-lg-12"><input class="form-control" formControlName="nazwa"></div>
+         </div>
+         
+         <div class="row">
+             <h3>Wartość</h3>
+             <div class="row">
+                 <div class="col-lg-3 text-right">Ilość:</div>
+                 <div class="col-lg-3"><input class="form-control" formControlName="ilosc"></div>
+                 <div class="col-lg-3 text-right">Cena [zł]</div>
+                 <div class="col-lg-3"><input class="form-control" formControlName="cena"></div>
+             </div>
+             <div class="row">
+                 <div class="col-lg-3 text-right">Jednostka miary:</div>
+                 <div class="col-lg-3"><input class="form-control" formControlName="jednostka"></div>
+             </div>
+         </div>
+         
+         <div class="row">
+             <h3>Podpis osoby uprawnionej do wystawienia dowodu wewnętrznego</h3>
+             <div class="col-lg-3 text-right">Osoba wystawiajaca:</div>
+             <div class="col-lg-3"><input class="form-control" formControlName="osoba"></div>
+         </div>
+         
+         <div class="row">
+             <h3>Księgowanie</h3>
+             <div class="row">
+                 <div class="col-lg-3">Kolumna księgi:</div>
+                 <div class="col-lg-3">
+                     <select class="form-control" formControlName="kolumna">
+                         <option value="">-- wybierz --</option>
+                         <option value="7">Wartość sprzedanych towarów i usług</option>
+                         <option value="8">Pozostałe przychody</option>
+                         <option value="10">Zakup towarów handlowych i materiałów wg cen zakupu</option>
+                         <option value="11">Koszty uboczne</option>
+                         <option value="12">Wynagrodzenie w gotówce i w naturze</option>
+                         <option value="13">Pozostałe wydatki</option>
+                         <option value="15">Kolumna numer 15</option>
+                     </select>
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="col-lg-3">Opis zdarzenia gospodarczego</div>
+                 <div class="col-lg-3"><input class="form-control" formControlName="opis"></div>
+             </div>
+         </div>
+         
+         <div class="row">
+             <div class="btn btn-group">
+                 <button class="btn btn-default" (click)="powrot()">Powrót</button>
+                 <button class="btn btn-danger" (click)="usun()">Usuń</button>
+                 <button class="btn btn-success">Zapisz</button>
+             </div>
+         </div>
+        </form>
+     </div>
+  </div>
+</div>

@@ -33,6 +33,8 @@ import { ZusComponent } from './zus/zus.component';
 import { AddZusComponent } from './add-zus/add-zus.component';
 import { WyposazenieComponent } from './wyposazenie/wyposazenie.component';
 import { AddWyposazenieComponent } from './add-wyposazenie/add-wyposazenie.component';
+import { DowodyComponent } from './dowody/dowody.component';
+import { AddDowodComponent } from './add-dowod/add-dowod.component';
 
 
 let providers = {
@@ -64,7 +66,9 @@ let providers = {
     ZusComponent,
     AddZusComponent,
     WyposazenieComponent,
-    AddWyposazenieComponent
+    AddWyposazenieComponent,
+    DowodyComponent,
+    AddDowodComponent
   ],
   imports: [
     BrowserModule,

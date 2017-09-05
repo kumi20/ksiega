@@ -11,7 +11,9 @@ import { DochodowyComponent } from './dochodowy/dochodowy.component';
 import { ZusComponent } from './zus/zus.component';
 import { AddZusComponent } from './add-zus/add-zus.component';
 import { WyposazenieComponent } from './wyposazenie/wyposazenie.component';
-import { AddWyposazenieComponent } from './add-wyposazenie/add-wyposazenie.component'
+import { AddWyposazenieComponent } from './add-wyposazenie/add-wyposazenie.component';
+import { DowodyComponent } from './dowody/dowody.component';
+import { AddDowodComponent } from './add-dowod/add-dowod.component';
 
 
 /// ROUTING
@@ -33,6 +35,9 @@ const routesConfig: Routes = [
   {path: 'wyposazenie', component: WyposazenieComponent, canActivate: [AuthGuard]},
   {path: 'wyposazenie/:id', component: AddWyposazenieComponent, canActivate: [AuthGuard]},
   {path: 'addWyposazenie', component: AddWyposazenieComponent, canActivate: [AuthGuard]},
+  {path: 'dowody', component: DowodyComponent, canActivate: [AuthGuard]},
+  {path: 'dowody/:id', component: AddDowodComponent, canActivate: [AuthGuard]},
+  {path: 'addDowod', component: AddDowodComponent, canActivate: [AuthGuard]}
 ]
 
 export const routerModule = RouterModule.forRoot(routesConfig, {
