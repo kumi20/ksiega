@@ -1,0 +1,89 @@
+<div class="ksiega_bg">
+   <div class="ksiega">
+      <app-navbar></app-navbar>
+      <div class="container">
+          	<div class="row" style="margin-bottom: 20px">
+                <div class="col-lg-3">
+                  <p>Rok:</p>
+                  <select class="form-control" [(ngModel)]="year">
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                  </select>
+                </div>
+                <div class="col-lg-3">
+                  <p>Miesiąc:</p>
+                  <select class="form-control" [(ngModel)]="month">
+                    <option value="01">styczeń</option>
+                    <option value="02">luty</option>
+                    <option value="03">marzec</option>
+                    <option value="04">kwiecień</option>
+                    <option value="05">maj</option>
+                    <option value="06">czerwiec</option>
+                    <option value="07">lipiec</option>
+                    <option value="08">sierpień</option>
+                    <option value="09">wrzesień</option>
+                    <option value="10">październik</option>
+                    <option value="11">listopad</option>
+                    <option value="12">grudzień</option>
+                  </select>
+                </div>
+                <div class="col-lg-3">
+                  <button class="btn btn-success" style="margin-top: 35px" (click)="pokaz()">Pokaż</button>
+                </div>
+             </div>
+             
+             <div class="row">
+                 <h3>Maksymalna możliwa kwota do zaksięgowania w danym miesiącu to:</h3>    
+                 <h3 style="font-weight: bold">{{kwotaKM}}</h3>           
+             </div>
+             
+             <div class="row">
+                 <table class="table table-hover">
+                     <thead>
+                         <th>Numer dokumentu</th>
+                         <th>Data wystawienia</th>
+                         <th>Określenie (rodzaj) poniesionego wydatku</th>
+                         <th>Wartość</th>
+                         <th></th>
+                         <th></th>
+                     </thead>
+                     <tbody>
+                        <tr *ngFor="let i of zestawienie">
+                            <td>{{i.numer}}</td>
+                            <td>{{i.data}}</td>
+                            <td>{{i.okreslenie_wydatku}}</td>
+                            <td>{{i.wartosc}}</td>
+                            <td><button class="btn btn-primary" routerLink="/zestawienie/{{i.id}}">szczegóły</button></td>
+                            <td><button class="btn btn-success" (click)="ksieguj(i.id)">zaksięguj</button></td>
+                        </tr>
+                        <tr *ngIf="!zestawienie?.length">
+                          <td colspan="6">
+                            <p  class="alert alert-danger">Brak wpisów w danym miesiącu</p>
+                          </td>
+                        </tr>
+
+                     </tbody>
+                 </table>
+             </div>
+             
+             
+             
+              <div class="row">
+                 <div class="col-lg-3"><a routerLink="/addZestawienie" class="btn btn-success">Dodaj</a></div>
+              </div>
+              
+              <div class="row" *ngIf="zaksiegowany">
+                   <div class="alert alert-success">
+                        Dokument został zaksięgowany
+                   </div>
+               </div>
+               
+               
+      </div>
+  </div>
+</div>
+

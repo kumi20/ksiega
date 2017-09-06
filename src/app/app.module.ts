@@ -39,6 +39,8 @@ import { PojazdComponent } from './pojazd/pojazd.component';
 import { AddPojazdComponent } from './add-pojazd/add-pojazd.component';
 import { EwidencjaComponent } from './ewidencja/ewidencja.component';
 import { AddTrasaComponent } from './add-trasa/add-trasa.component';
+import { ZestawienieComponent } from './zestawienie/zestawienie.component';
+import { AddZestawienieComponent } from './add-zestawienie/add-zestawienie.component';
 
 
 let providers = {
@@ -76,7 +78,9 @@ let providers = {
     PojazdComponent,
     AddPojazdComponent,
     EwidencjaComponent,
-    AddTrasaComponent
+    AddTrasaComponent,
+    ZestawienieComponent,
+    AddZestawienieComponent
   ],
   imports: [
     BrowserModule,

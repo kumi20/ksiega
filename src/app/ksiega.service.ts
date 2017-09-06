@@ -545,4 +545,85 @@ export class KsiegaService {
             response => response.json()
         )
     }
+  
+    //funkcja zwraca kwote jaka można zaksiegować w kilometrowce
+    kwotaKilometrowka(year, mounth){
+        const json = JSON.stringify({
+            'idUser':this.idUser,
+            'mounth': mounth,
+            'year':year
+        })
+        
+        return this._http.post(this.uri+"getPrzejechaneKm.php", json).map(
+            response => response.json()
+        )
+    }
+  
+    //funkcja pobiera zestawienie dokumentow do kilometrowki
+    getZestawienie(year, mounth){
+        const json = JSON.stringify({
+            'idUser':this.idUser,
+            'mounth': mounth,
+            'year':year
+        })
+        
+        return this._http.post(this.uri+"getZestawienie.php", json).map(
+            response => response.json()
+        )
+    }
+  
+    //funkcja pobiera szczegóły zestawienia
+    getDetZestawienie(id){
+         const json = JSON.stringify({
+            'id':id,
+            
+        })
+        
+        return this._http.post(this.uri+"getDetZestawienia.php", json).map(
+            response => response.json()
+        )
+    }
+  
+    //funkcja zapisuje zestawienie
+    saveZestawienie(values, id){
+        const json = JSON.stringify({
+            'idUser':this.idUser,
+            'termin': values.dataDokumentu.date.year+'-'+values.dataDokumentu.date.month+'-'+values.dataDokumentu.date.day,
+            'numer': values.numerDokumentu,
+            'okreslenie_wydatku': values.rodzajWydatku,
+            'wartosc': values.wartoscWydatku,  
+            'pojazdy': values.pojazdyid,
+            'id': id
+        })
+        
+        return this._http.post(this.uri+"addZestawienie.php", json).map(
+            response => response.json()
+        )
+    }
+  
+    //funkcja usuwa zestawienie
+    deleteZestawienie(id){
+        
+        const json = JSON.stringify({
+            'id':id,
+            
+        })
+        
+        return this._http.post(this.uri+"deleteZestawienie.php", json).map(
+            response => response.json()
+        )
+    }
+  
+    //funkcja ksieguje zestawienie kilometrowek
+    ksiegujZestawienie(id, wartosc){
+        const json = JSON.stringify({
+            'idUser':this.idUser,
+            'wartosc': wartosc, 
+            'id':id
+        })
+        
+        return this._http.post(this.uri+"ksiegujZestawienie.php", json).map(
+            response => response.json()
+        )
+    }
 }

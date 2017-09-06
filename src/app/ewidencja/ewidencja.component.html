@@ -58,6 +58,11 @@
                       <td>{{i.wartosc}}</td>
                       <td>{{i.uwagi}}</td>
                   </tr>
+                  <tr *ngIf="!trasa?.length">
+                          <td colspan="7">
+                            <p  class="alert alert-danger">Brak wpisów w danym miesiącu</p>
+                          </td>
+                    </tr>
               </tbody>
             </table>
         </div>

@@ -21,7 +21,12 @@
                   <td>{{i.miejsce_uzytkowania}}</td>
                   <td>{{i.data_likwidacji}}</td>
                   <td>{{i.przyczyna_likwidacji}}</td>
-              </tr>              
+              </tr>
+              <tr *ngIf="!wyposazenie?.length">
+                          <td colspan="7">
+                            <p  class="alert alert-danger">Brak wpisów</p>
+                          </td>
+                    </tr>              
             </tbody>
           </table>
       </div>

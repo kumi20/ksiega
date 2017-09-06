@@ -1,0 +1,46 @@
+<div class="ksiega_bg">
+   <div class="ksiega">
+      <app-navbar></app-navbar>
+      <div class="container">
+         <form [formGroup]="zestawienie" (ngSubmit)="zapisz(zestawienie.value)">
+          <div class="row">
+              <h3>Pojazd, którego dotyczy wydatek</h3>
+              <div class="col-lg-3 text-right">Pojazd:</div>
+              <div class="col-lg-3">
+                  <select class="form-control" formControlName="pojazdyid">
+                      <option value="">-- wybierz --</option>
+                      <option *ngFor="let i of listaPojazdow" value="{{i.id}}">{{i.Marka}}</option>
+                  </select>
+              </div>
+          </div>
+          
+          <div class="row">
+              <h3>Dane dokumentu</h3>
+              <div class="col-lg-3 text-right">Data dokumentu:</div>
+              <div class="col-lg-3"><my-date-picker name="mydate" [options]="myDatePickerOptions" formControlName="dataDokumentu"></my-date-picker></div>
+              <div class="col-lg-3 text-right">Numer dokumentu:</div>
+              <div class="col-lg-3"><input class="form-control" formControlName="numerDokumentu"></div>
+          </div>
+          
+          <div class="row">
+              <h3>Określenie (rodzaj) poniesionego wydatku</h3>
+              <div class="col-lg-12"><input class="form-control" formControlName="rodzajWydatku"></div>
+          </div>
+          
+          <div class="row">
+              <h3>Wartość poniesionego wydatku</h3>
+              <div class="col-lg-3 text-right">Wartość [zl]</div>
+              <div class="col-lg-3"><input class="form-control" formControlName="wartoscWydatku"></div>
+          </div>
+          
+          <div class="row">
+            <div class="btn btn-group">
+                <button class="btn btn-default" (click)="powrot()">Powrót</button>
+                <button class="btn btn-danger" (click)="usun()">Usuń</button>
+                <button class="btn btn-success">Zapisz</button>
+            </div>
+          </div>
+          </form>
+      </div>
+  </div>
+</div>

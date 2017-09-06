@@ -19,6 +19,11 @@
                         <td>{{i.Pojemnosc_silnika}}</td>
                         <td>{{i.Stawka}}</td>
                     </tr>
+                    <tr *ngIf="!pojazdy?.length">
+                          <td colspan="5">
+                            <p  class="alert alert-danger">Brak wpisów</p>
+                          </td>
+                    </tr>
                 </tbody>
             </table>
         </div>

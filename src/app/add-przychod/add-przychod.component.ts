@@ -109,13 +109,13 @@ export class AddPrzychodComponent implements OnInit {
 	
   zapisz(dateControl){
 	  this.ksiegaService.savePrzychod(dateControl, this.idPrzychodu).subscribe(
-	  	response => history.back()
+	  	response => this._route.navigateByUrl('/ksiega')
 	  )
   }
 	
   usun(){
 	  this.ksiegaService.deletePrzychod(this.idPrzychodu).subscribe(
-	  	response => this._route.navigate(['ksiega'])
+	  	response => this._route.navigateByUrl('/ksiega')
 	  )
   }
 }

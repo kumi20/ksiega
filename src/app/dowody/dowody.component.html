@@ -42,6 +42,11 @@
                              <td><button class="btn btn-primary" routerLink="/dowody/{{i.id}}">szczegóły</button></td>
                              <td><button class="btn btn-success" (click)="ksieguj(i.id)">zaksięguj</button></td>
                          </tr>
+                         <tr *ngIf="!dowody?.length">
+                                <td colspan="8">
+                                  <p  class="alert alert-danger">Brak wpisów w danym miesiącu</p>
+                                </td>
+                          </tr>
                      </tbody>
                  </table>
              </div>

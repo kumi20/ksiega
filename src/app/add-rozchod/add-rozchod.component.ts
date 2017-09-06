@@ -111,13 +111,13 @@ export class AddRozchodComponent implements OnInit {
 	
 	zapisz(dateControl){
 		this.ksiegaService.saveRozchod(dateControl, this.idRozchodu).subscribe(
-			response => history.back()
+			response => this._route.navigateByUrl('/ksiega')
 		)
 	}
 	
   usun(){
 	  this.ksiegaService.deletePrzychod(this.idRozchodu).subscribe(
-	  		response => this._route.navigate(['ksiega'])
+	  		response => this._route.navigateByUrl('/ksiega')
 	  )
   }
 

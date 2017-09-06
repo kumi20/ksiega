@@ -63,7 +63,11 @@
 					<td>{{i.pozostale_wydatki}} zł</td>
 					<td>{{i.opis_zdarzenia}}</td>
 				</tr>
-				
+				<tr *ngIf="!kpir?.length">
+                          <td colspan="9">
+                            <p  class="alert alert-danger">Brak wpisów w danym miesiącu</p>
+                          </td>
+                    </tr>
 			</tbody>
 		</table>
 	</div>

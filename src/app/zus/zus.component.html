@@ -40,6 +40,11 @@
                           <td>{{i.skladka_fundusz_pracy}}</td>
                           <td><button class="btn btn-danger" (click)="usun(i.id)">usuń</button></td>
                       </tr>
+                      <tr *ngIf="!zus?.length">
+                          <td colspan="7">
+                            <p  class="alert alert-danger">Brak wpisó</p>
+                          </td>
+                    </tr>
                   </tbody>
                </table>
            </div>

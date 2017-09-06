@@ -22,6 +22,11 @@
 			      <td><p *ngIf="i.dostawca==1">tak</p></td>
 			      <td><p *ngIf="i.odbiorca==1">tak</p></td>
 			  </tr>
+			  <tr *ngIf="!kontrahenci?.length">
+                          <td colspan="6">
+                            <p  class="alert alert-danger">Brak wpisów</p>
+                          </td>
+                    </tr>
 			</tbody>
 		</table>
 		<div style="text-align: center">

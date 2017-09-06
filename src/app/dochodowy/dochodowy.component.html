@@ -40,6 +40,11 @@
                         <td>{{i.kwota_zaliczki | number:'.2-2'}} zł</td>
                         <td><button (click)="usun(i.id)" class="btn btn-danger">Usuń</button></td>
                     </tr>
+                    <tr *ngIf="!dochodowy?.length">
+                          <td colspan="7">
+                            <p  class="alert alert-danger">Brak wpisów w danym miesiącu</p>
+                          </td>
+                    </tr>
                 </tbody>
           </table>
        </div>
