@@ -3,6 +3,7 @@
 <app-navbar></app-navbar>  
 <div class="container">
    <form [formGroup]="kontrahenci" (ngSubmit)="save(kontrahenci.value)">
+   <section class="sectiont">
     <h3>Dane firmy</h3>
     <div class="row">
         <div class="col-lg-3">
@@ -38,7 +39,8 @@
           <input class="form-control" formControlName="miejscowosc">
         </div>
     </div>
-    
+    </section>
+    <section class="sectiont">
     <h3>Dane kontaktowe</h3>
     <div class="row">
         <div class="col-lg-3">Osoba kontaktowa:</div>
@@ -74,7 +76,10 @@
           <input class="form-control" formControlName="www">
         </div>
     </div>
-    
+    </section>
+    <section class="sectiont">
+      
+
     <h3>Rodzaj kontrahenta</h3>
     <div class="row">
         <div class="col-lg-3">Dostawca:</div>
@@ -84,7 +89,7 @@
         <div class="col-lg-3">Odbiorca:</div>
         <div class="col-lg-3"><input type="checkbox" formControlName="odbiorca"></div>
     </div>
-    
+        </section>
     <div class="btn btn-group">
         <button class="btn btn-default" (click)="back()">Powrót</button>
         <button class="btn btn-danger" (click)="delete()">Usuń</button>

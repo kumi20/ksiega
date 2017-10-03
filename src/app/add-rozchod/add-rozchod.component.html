@@ -4,7 +4,9 @@
 
 <div class="container">
 	<form (ngSubmit)="zapisz(addRozchod.value)" [formGroup]="addRozchod">
+		<section class="sectiont">
 		<div class="row" style="margin-bottom: 10px">
+		
 			<h3>Dane zdarzenia gospodarczego</h3>
 			<div class="col-lg-6">
 			
@@ -64,7 +66,8 @@
 			<div class="row" style="margin-bottom: 10px">
 				<div class="col-lg-12" [ngClass]="{'form-group has-error':!addRozchod.controls['opis'].valid && addRozchod.controls['opis'].touched}">Opis zdarzenia gospodarczego: <input class="form-control" formControlName="opis"></div>
 			</div><p *ngIf="!addRozchod.controls['opis'].valid && addRozchod.controls['opis'].touched" class="alert alert-danger">Podaj opis zdarzenia</p>
-
+      </section>
+      <section class="sectiont">
 			<div class="row" style="margin-bottom: 10px">
 				<h3>Dane kontrahenta</h3>
 				<div class="col-lg-6" [ngClass]="{'form-group has-error':!addRozchod.controls['danekontrahenta'].valid && addRozchod.controls['danekontrahenta'].touched}">
@@ -95,6 +98,7 @@
 				<h3>Uwagi</h3>
 				<div class="col-lg-12"><input class="form-control" formControlName="uwagi"></div>
 			</div>
+			</section>
 			<div class="row" style="margin-bottom: 10px">
 				<div class="btn btn-group">
 					<button class="btn btn-defaul" routerLink="/ksiega">Powrót</button>

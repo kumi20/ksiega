@@ -23,7 +23,7 @@ export class KsiegaComponent implements OnInit {
 	  let pom = dataToday.getMonth();
 	  pom++;
 	  
-	  if (dataToday.getMonth() < 10 ) this.month = "0"+pom;
+	  if (pom < 10 ) this.month = "0"+pom;
 	  else this.month = pom;
 	  this.year = dataToday.getFullYear();
 	  

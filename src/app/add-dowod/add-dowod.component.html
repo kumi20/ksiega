@@ -3,6 +3,7 @@
     <app-navbar></app-navbar>
       <div class="container">
         <form [formGroup]="dowody" (ngSubmit)="zapisz(dowody.value)">
+        <section class="sectiont">
          <div class="row">
              <h3>Dane dowodu wewnętrznego</h3>
              <div class="col-lg-3 text-right">Numer dowodu:</div>
@@ -15,7 +16,8 @@
              <h3>Nazwa towaru, opłaty lub tytuł i żródło przychodu</h3>
              <div class="col-lg-12"><input class="form-control" formControlName="nazwa"></div>
          </div>
-         
+         </section>
+         <section class="sectiont">
          <div class="row">
              <h3>Wartość</h3>
              <div class="row">
@@ -35,7 +37,9 @@
              <div class="col-lg-3 text-right">Osoba wystawiajaca:</div>
              <div class="col-lg-3"><input class="form-control" formControlName="osoba"></div>
          </div>
+         </section>
          
+         <section class="sectiont">
          <div class="row">
              <h3>Księgowanie</h3>
              <div class="row">
@@ -58,7 +62,7 @@
                  <div class="col-lg-3"><input class="form-control" formControlName="opis"></div>
              </div>
          </div>
-         
+         </section>
          <div class="row">
              <div class="btn btn-group">
                  <button class="btn btn-default" (click)="powrot()">Powrót</button>

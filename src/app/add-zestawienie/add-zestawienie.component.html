@@ -3,6 +3,7 @@
       <app-navbar></app-navbar>
       <div class="container">
          <form [formGroup]="zestawienie" (ngSubmit)="zapisz(zestawienie.value)">
+         <section class="sectiont">
           <div class="row">
               <h3>Pojazd, którego dotyczy wydatek</h3>
               <div class="col-lg-3 text-right">Pojazd:</div>
@@ -21,7 +22,8 @@
               <div class="col-lg-3 text-right">Numer dokumentu:</div>
               <div class="col-lg-3"><input class="form-control" formControlName="numerDokumentu"></div>
           </div>
-          
+          </section>
+          <section class="sectiont">
           <div class="row">
               <h3>Określenie (rodzaj) poniesionego wydatku</h3>
               <div class="col-lg-12"><input class="form-control" formControlName="rodzajWydatku"></div>
@@ -32,7 +34,7 @@
               <div class="col-lg-3 text-right">Wartość [zl]</div>
               <div class="col-lg-3"><input class="form-control" formControlName="wartoscWydatku"></div>
           </div>
-          
+          </section>
           <div class="row">
             <div class="btn btn-group">
                 <button class="btn btn-default" (click)="powrot()">Powrót</button>

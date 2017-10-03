@@ -2,6 +2,7 @@
    <div class="ksiega">
       <app-navbar></app-navbar>
       <div class="container">
+         <section class="sectiont">
           <h3>Dane pojazdu osobowego</h3>
           <form [formGroup]="pojazd" (ngSubmit)="zapisz(pojazd.value)">
           <div class="row">
@@ -28,7 +29,8 @@
               <div class="col-lg-3 text-right">Stawka za 1km przebiegu [zł]:</div>
               <div class="col-lg-3"><input class="form-control" formControlName="Stawka"></div>
           </div>
-          
+           </form>
+          </section>
           <div class="row">
               <div class="btn btn-group">
                   <button class="btn btn-default" (click)="powrot()">Powrót</button>
@@ -36,7 +38,7 @@
                   <button class="btn btn-success">Zapisz</button>
               </div>
           </div>
-          </form>
+         
      </div>
   </div>
 </div>
